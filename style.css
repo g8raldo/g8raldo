@@ -1,21 +1,31 @@
-.socials a img, .stores a img {
+/* Base icon style */
+.socials a img,
+.stores a img {
   width: 48px;
   height: 48px;
   transition: all 0.3s ease-in-out;
-  filter: brightness(0) invert(1); /* blanc par défaut */
+  filter: brightness(0) invert(1); /* Blanc par défaut */
 }
 
-/* Hover global */
-.socials a:hover img, .stores a:hover img {
+/* Store icons slightly smaller inside buttons */
+.store-link img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+/* Hover resets filter so l'image retrouve sa couleur */
+.socials a:hover img,
+.store-link:hover img {
+  filter: none;
   transform: scale(1.15);
-  filter: none; /* affiche la couleur originale */
 }
 
-/* Glow personnalisé */
-.socials a.tiktok:hover img { box-shadow: 0 0 15px #69C9D0; }
-.socials a.x:hover img { box-shadow: 0 0 15px #1DA1F2; }
-.socials a.youtube:hover img { box-shadow: 0 0 15px #FF0000; }
+/* Glow marque */
+.socials a.tiktok:hover img       { box-shadow: 0 0 15px #69C9D0; }
+.socials a.x:hover img            { box-shadow: 0 0 15px #FFFFFF; } /* X = noir/blanc brand */
+.socials a.youtube:hover img      { box-shadow: 0 0 15px #FF0000; }
 
-.stores a.airbit:hover img { box-shadow: 0 0 15px #F7931E; }
-.stores a.soundee:hover img { box-shadow: 0 0 15px #FF7F50; }
-.stores a.traktrain:hover img { box-shadow: 0 0 15px #8B5CF6; }
+.store-link.airbit:hover img      { box-shadow: 0 0 15px #F7931E; }
+.store-link.soundee:hover img     { box-shadow: 0 0 15px #FF7F50; }
+.store-link.traktrain:hover img   { box-shadow: 0 0 15px #8B5CF6; }
