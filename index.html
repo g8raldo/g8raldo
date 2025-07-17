@@ -4,237 +4,78 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome To My Galaxy | Géraldo</title>
-  <meta name="description" content="Géraldo – The Universe Of Unique Vibes. Listen to my music, grab licenses, connect & submit via form. Bienvenue dans ma Galaxie – L'univers de Vibes Uniques." />
-  <meta property="og:title" content="Welcome To My Galaxy | Géraldo" />
-  <meta property="og:description" content="The Universe Of Unique Vibes. Bienvenue dans ma Galaxie." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://youtube.com/@g8raldo" />
-  <meta property="og:image" content="Profile.png" />
-  <link rel="icon" type="image/png" href="Profile.png" />
+  <title>Welcome To My Galaxy</title>
+  <meta name="description" content="The Universe Of Unique Vibes – Bienvenue dans ma Galaxie. Music, Stores, Contact & Global Vibes." />
   <style>
-    :root {
-      --accent-gold: #ffd700;
-      --accent-red: #ff0000;
-      --accent-orange: #ff6600;
-      --accent-green: #00ff66;
-      --accent-blue: #0066ff;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --header-h: 72px;
-    }
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{margin:0;font-family:'Arial',sans-serif;background:#000;color:#fff;line-height:1.4;}
+    body { margin: 0; font-family: 'Arial', sans-serif; background: #000; color: #fff; scroll-behavior: smooth; }
+    header { display: flex; align-items: center; justify-content: center; background: #111; padding: 15px 20px; }
+    nav a { margin: 0 10px; text-decoration: none; color: #fff; font-weight: bold; transition: color 0.3s ease; }
+    nav a:hover { color: #ffd700; }
 
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:1000;
-      display:flex;align-items:center;justify-content:space-between;
-      background:#111;padding:10px 20px;height:var(--header-h);
-      border-bottom:1px solid rgba(255,255,255,.1);
-    }
-    header img.logo{width:48px;height:48px;border-radius:50%;object-fit:cover;}
-    nav{display:flex;align-items:center;gap:16px;}
-    nav a{padding:4px 0;margin:0 4px;text-decoration:none;color:#fff;font-weight:bold;font-size:.95rem;letter-spacing:.25px;transition:color .3s ease;}
-    nav a:hover,nav a:focus{color:var(--accent-gold);outline:none;}
-    .lang-switch{background:none;border:1px solid #fff;color:#fff;padding:5px 10px;cursor:pointer;border-radius:8px;font-size:.8rem;line-height:1;}
-    .lang-switch:focus{outline:2px solid var(--accent-gold);}
+    #home { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; background: url('Profile.png') center/cover no-repeat; }
+    #home::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
+    #home h2, #home p, #home a { position: relative; z-index: 2; }
+    #home h2 { font-size: 3rem; margin-bottom: 10px; }
+    #home p { font-size: 1.2rem; margin-bottom: 20px; color: #ffd700; }
 
-    /* Hero */
-    #home{
-      position:relative;min-height:100vh;padding:0 20px;padding-top:var(--header-h);
-      display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;
-      background:url('Profile.png') center/cover no-repeat;
-    }
-    #home::after{
-      content:"";position:absolute;inset:0;background:rgba(0,0,0,.7);
-    }
-    #home>*{position:relative;z-index:1;}
-    #home h1{font-size:clamp(2.5rem,5vw,4rem);margin:0 0 15px;font-weight:800;}
-    #home h1 span.brand{display:block;font-size:.45em;font-weight:400;opacity:.85;margin-top:6px;}
-    #home p.tagline{font-size:1.25rem;max-width:600px;margin:0 0 30px;opacity:.9;}
-    #home .home-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+    .btn-gradient { background: linear-gradient(270deg, #ff0000, #ff6600, #ffd700, #00ff66, #0066ff, #ff0000); background-size: 800% 800%; animation: gradientMove 8s linear infinite; color: #fff; padding: 14px 28px; border-radius: 12px; font-weight: bold; text-transform: uppercase; border: none; text-decoration: none; font-size: 1rem; transition: transform 0.4s ease; }
+    .btn-gradient:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
 
-    /* Gradient Buttons */
-    .btn-gradient{
-      background:linear-gradient(270deg,var(--accent-red),var(--accent-orange),var(--accent-gold),var(--accent-green),var(--accent-blue),var(--accent-red));
-      background-size:800% 800%;animation:gradientMove 8s linear infinite;
-      color:#fff;padding:14px 28px;border-radius:var(--radius-md);font-weight:bold;text-transform:uppercase;border:none;display:inline-block;margin:2px;text-decoration:none;font-size:1rem;transition:transform .4s ease,box-shadow .4s ease;white-space:nowrap;
-    }
-    .btn-gradient:hover,.btn-gradient:focus{transform:scale(1.05);box-shadow:0 0 20px rgba(255,215,0,.8);outline:none;}
-    @keyframes gradientMove{0%{background-position:0% 50%;}100%{background-position:100% 50%;}}
+    section { padding: 60px 20px; text-align: center; }
+    section h2 { font-size: 2rem; margin-bottom: 20px; }
+    .stores { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+    .store-link { display: flex; align-items: center; background: #111; padding: 10px 15px; border-radius: 8px; text-decoration: none; color: #fff; font-weight: bold; transition: background 0.3s ease; }
+    .store-link img { width: 24px; height: 24px; margin-right: 10px; }
+    .store-link:hover { background: #222; }
 
-    section{padding:80px 20px;text-align:center;}
-    section h2{font-size:2.25rem;margin:0 0 20px;}
-    section p{font-size:1.1rem;margin:0 0 30px;}
+    .socials { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+    .socials a img { width: 32px; height: 32px; filter: brightness(0) invert(1); transition: transform 0.3s ease; }
+    .socials a img:hover { transform: scale(1.1); }
 
-    /* MUSIC (YouTube Carousel) */
-    .yt-carousel-wrap{max-width:1200px;margin:0 auto;text-align:left;}
-    .yt-carousel-heading{text-align:center;}
-    .yt-carousel{position:relative;display:flex;align-items:stretch;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 10px 25px 10px;-webkit-overflow-scrolling:touch;}
-    .yt-carousel::-webkit-scrollbar{height:8px;}
-    .yt-carousel::-webkit-scrollbar-track{background:#111;border-radius:4px;}
-    .yt-carousel::-webkit-scrollbar-thumb{background:var(--accent-gold);border-radius:4px;}
-    .yt-card{flex:0 0 300px;scroll-snap-align:start;background:#111;border-radius:var(--radius-md);box-shadow:0 0 10px rgba(255,255,255,.05);overflow:hidden;}
-    .yt-card iframe{width:100%;aspect-ratio:16/9;border:0;display:block;}
-    .yt-card .yt-title{padding:10px;font-size:.95rem;font-weight:bold;line-height:1.2;text-align:center;}
-
-    .store-links{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
-
-    /* CONTACT ICON ROW */
-    .contact-icons{display:flex;justify-content:center;align-items:center;gap:24px;margin:32px 0;flex-wrap:wrap;}
-    .contact-icons a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#111;border:1px solid rgba(255,255,255,.15);transition:transform .25s ease,box-shadow .25s ease;}
-    .contact-icons a:hover,.contact-icons a:focus{transform:scale(1.1);box-shadow:0 0 12px rgba(255,215,0,.6);outline:none;}
-    .contact-icons svg{width:24px;height:24px;fill:#fff;}
-
-    /* Google Form Embed */
-    .form-embed-wrapper{max-width:700px;margin:0 auto;}
-    .form-embed-wrapper iframe{width:100%;max-width:100%;border:0;height:700px;background:#fff;border-radius:var(--radius-md);}
-
-    /* Footer */
-    footer{text-align:center;padding:40px 20px;background:#111;font-size:.9rem;color:#888;line-height:1.6;}
-
-    /* Responsive tweaks */
-    @media (max-width:768px){
-      nav{gap:8px;}
-      nav a{font-size:.85rem;}
-      section{padding:60px 16px;}
-      section h2{font-size:1.9rem;}
-      #home p.tagline{font-size:1.05rem;padding:0 10px;}
-      .yt-card{flex-basis:240px;}
-      .contact-icons a{width:44px;height:44px;}
-    }
-
-    /* Language visibility */
-    .en{display:none;}
+    footer { text-align: center; padding: 20px; background: #111; font-size: 0.9rem; color: #888; }
   </style>
 </head>
 <body>
+
 <header>
-  <img src="Profile.png" alt="Logo Géraldo" class="logo" />
   <nav>
-    <a href="#home" class="fr">Accueil</a><a href="#home" class="en">Home</a>
-    <a href="#music" class="fr">Music</a><a href="#music" class="en">Music</a>
-    <a href="#contact" class="fr">Contact</a><a href="#contact" class="en">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#music">Music</a>
+    <a href="#contact">Contact</a>
   </nav>
-  <button class="lang-switch" onclick="switchLang()">EN</button>
 </header>
 
-<!-- HERO -->
-<section id="home" aria-label="Hero">
-  <!-- FR -->
-  <h1 class="fr">Bienvenue dans ma Galaxie <span class="brand">Géraldo</span></h1>
-  <p class="fr tagline">L'univers de Vibes Uniques.</p>
-  <div class="home-cta fr"><a href="https://youtube.com/@g8raldo" class="btn-gradient">Écouter sur YouTube</a></div>
-  <!-- EN -->
-  <h1 class="en">Welcome To My Galaxy <span class="brand">Géraldo</span></h1>
-  <p class="en tagline">The Universe Of Unique Vibes.</p>
-  <div class="home-cta en"><a href="https://youtube.com/@g8raldo" class="btn-gradient">Listen on YouTube</a></div>
+<section id="home">
+  <h2>Welcome To My Galaxy</h2>
+  <p>The Universe Of Unique Vibes</p>
+  <p>Bienvenue dans ma Galaxie • L'univers des Vibes Uniques</p>
+  <a href="https://youtube.com/@g8raldo" class="btn-gradient">Listen on YouTube</a>
 </section>
 
-<!-- MUSIC -->
-<section id="music" aria-label="Music">
-  <h2 class="fr">Music</h2>
-  <h2 class="en">Music</h2>
-  <p class="fr">Découvre mes instrus – fais défiler et clique pour écouter.</p>
-  <p class="en">Browse my beats – scroll & tap to play.</p>
-
-  <div class="yt-carousel-wrap">
-    <div class="yt-carousel" id="ytCarousel">
-      <!-- NOTE: Lightweight embeds; replace VIDEO_ID_x with real IDs if you want individual featured beats.
-           Below we include 5 example instances from the playlist start index. -->
-      <div class="yt-card"><iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9&index=1" allowfullscreen title="YouTube Playlist Embed 1"></iframe><div class="yt-title">Playlist – Start</div></div>
-      <div class="yt-card"><iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9&index=2" allowfullscreen title="YouTube Playlist Embed 2"></iframe><div class="yt-title">Playlist – 2</div></div>
-      <div class="yt-card"><iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9&index=3" allowfullscreen title="YouTube Playlist Embed 3"></iframe><div class="yt-title">Playlist – 3</div></div>
-      <div class="yt-card"><iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9&index=4" allowfullscreen title="YouTube Playlist Embed 4"></iframe><div class="yt-title">Playlist – 4</div></div>
-      <div class="yt-card"><iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9&index=5" allowfullscreen title="YouTube Playlist Embed 5"></iframe><div class="yt-title">Playlist – 5</div></div>
-    </div>
-  </div>
-
-  <div class="store-links">
-    <a href="https://airbit.com/g8raldo" target="_blank" rel="noopener" class="btn-gradient fr">Airbit</a>
-    <a href="https://soundee.com/g8raldo" target="_blank" rel="noopener" class="btn-gradient fr">Soundee</a>
-    <a href="https://traktrain.com/g8raldo" target="_blank" rel="noopener" class="btn-gradient fr">Traktrain</a>
-
-    <a href="https://airbit.com/g8raldo" target="_blank" rel="noopener" class="btn-gradient en">Airbit</a>
-    <a href="https://soundee.com/g8raldo" target="_blank" rel="noopener" class="btn-gradient en">Soundee</a>
-    <a href="https://traktrain.com/g8raldo" target="_blank" rel="noopener" class="btn-gradient en">Traktrain</a>
+<section id="music">
+  <h2>Music</h2>
+  <p>Find my beats on these platforms:</p>
+  <div class="stores">
+    <a href="https://airbit.com/g8raldo" class="store-link"><img src="airbit-logo.png" alt="Airbit">Airbit</a>
+    <a href="https://soundee.com/g8raldo" class="store-link"><img src="soundee-logo.png" alt="Soundee">Soundee</a>
+    <a href="https://traktrain.com/g8raldo" class="store-link"><img src="traktrain-logo.png" alt="Traktrain">Traktrain</a>
   </div>
 </section>
 
-<!-- GOOGLE FORM (replaces Newsletter) -->
-<section id="form" aria-label="Submit Form">
-  <h2 class="fr">Formulaire</h2>
-  <h2 class="en">Submit Form</h2>
-  <p class="fr">Laisse-moi un message, une demande de beat ou une collab.</p>
-  <p class="en">Send a message, beat request or collab idea.</p>
-  <div class="form-embed-wrapper">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSelxwSocLquiDCTlT5h0ubNpw01C9pjJScfifEZXo-Hk1kdyw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+  <div class="socials">
+    <a href="https://tiktok.com/@g8raldo"><img src="tiktok-icon.png" alt="TikTok"></a>
+    <a href="https://x.com/g8raldo"><img src="x-icon.png" alt="X"></a>
+    <a href="https://youtube.com/@g8raldo"><img src="youtube-icon.png" alt="YouTube"></a>
   </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" aria-label="Contact">
-  <h2 class="fr">Contact</h2>
-  <h2 class="en">Contact</h2>
-  <p class="fr">Écris-moi : <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-  <p class="en">Write me: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-
-  <div class="contact-icons">
-    <a href="https://tiktok.com/@g8raldo/" target="_blank" aria-label="TikTok" rel="noopener">${TIKTOK_ICON}</a>
-    <a href="https://x.com/g8raldo/" target="_blank" aria-label="X" rel="noopener">${X_ICON}</a>
-    <a href="https://youtube.com/@g8raldo" target="_blank" aria-label="YouTube" rel="noopener">${YOUTUBE_ICON}</a>
-  </div>
-
-  <div class="fr"><a href="mailto:contact@g8raldo.com" class="btn-gradient">Envoyer un Email</a></div>
-  <div class="en"><a href="mailto:contact@g8raldo.com" class="btn-gradient">Send Email</a></div>
 </section>
 
 <footer>
-  © 2025 Géraldo – The Universe Of Unique Vibes. Bienvenue dans ma Galaxie.
+  © 2025 The Universe Of Unique Vibes
 </footer>
-
-<script>
-function switchLang(){
-  const frEls=document.querySelectorAll('.fr');
-  const enEls=document.querySelectorAll('.en');
-  const btn=document.querySelector('.lang-switch');
-  const showEn=btn.textContent.trim()==='EN';
-  frEls.forEach(el=>{el.style.display=showEn?'none':'';});
-  enEls.forEach(el=>{el.style.display=showEn?'':'none';});
-  btn.textContent=showEn?'FR':'EN';
-  document.documentElement.lang=showEn?'en':'fr';
-}
-
-/* Optional: Arrow key scroll for carousel */
-(function(){
-  const car=document.getElementById('ytCarousel');
-  if(!car) return;
-  car.addEventListener('wheel',e=>{
-    if(Math.abs(e.deltaX)<Math.abs(e.deltaY)){
-      car.scrollLeft+=e.deltaY; // vertical wheel scroll moves horiz.
-      e.preventDefault();
-    }
-  },{passive:false});
-})();
-</script>
-
-<!-- Inline SVG icons injected via JS replace tokens -->
-<script>
-// Replace template tokens with inline SVG so you don't need external icon libs.
-(function(){
-  const icons={
-    TIKTOK:`<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M177.4 0h-41.9v169.6c0 16.8-13.6 30.4-30.4 30.4s-30.4-13.6-30.4-30.4 13.6-30.4 30.4-30.4c3.3 0 6.5.5 9.5 1.5V98.6c-3.1-.4-6.3-.7-9.5-.7-42.8 0-77.5 34.7-77.5 77.5S63.7 253 106.5 253 184 218.3 184 175.5V86.1c11.9 8.8 26.5 14 42.3 14v-43c-15.7 0-30.4-4.9-42.3-13.2V0z"/></svg>`,
-    X:`<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M389.2 48H470L304.5 241.7 500 464H346.1L232.3 330.5 104.9 464H23.8L200.7 256.6 10 48h157.1l101.5 120.1L389.2 48zM362.7 421.3h45.4L155.7 88h-48L362.7 421.3z"/></svg>`,
-    YOUTUBE:`<svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.8-42.2-48.3-48.6C458.5 64 288 64 288 64S117.5 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6C14.4 167.1 14.4 256 14.4 256s0 88.9 11.9 131.9c6.3 23.7 24.8 41.3 48.3 47.7C117.5 448 288 448 288 448s170.5 0 213.4-11.5c23.5-6.3 42-24 48.3-47.7 11.9-43 11.9-131.9 11.9-131.9s0-88.9-11.9-131.9zM232 338.5v-165l142.7 82.5L232 338.5z"/></svg>`
-  };
-  document.body.innerHTML=document.body.innerHTML
-    .replace(/\$\{TIKTOK_ICON\}/g,icons.TIKTOK)
-    .replace(/\$\{X_ICON\}/g,icons.X)
-    .replace(/\$\{YOUTUBE_ICON\}/g,icons.YOUTUBE);
-})();
-</script>
 
 </body>
 </html>
