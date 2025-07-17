@@ -1,160 +1,145 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Géraldo | Afro-Fusion & Trap Beats</title>
-  <style>
-    /* Base */
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #000;
-      color: #fff;
-      scroll-behavior: smooth;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: #111;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    nav {
-      margin-top: 15px;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ffd700;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Géraldo | Official Website</title>
+<style>
+    /* Reset */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: 'Roboto', sans-serif; color:#fff; background:#000; overflow-x:hidden;}
 
-    /* Gradient Buttons */
-    .btn-gradient {
-      background: linear-gradient(270deg, #ff0000, #ff6600, #ffd700, #00ff66, #0066ff, #ff0000);
-      background-size: 800% 800%;
-      animation: gradientMove 8s linear infinite;
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: all 0.4s ease;
-      border: none;
-      display: inline-block;
-      margin: 10px;
-      text-decoration: none;
-      font-size: 1rem;
+    /* Animations */
+    @keyframes fadeIn {0%{opacity:0; transform:translateY(30px);} 100%{opacity:1; transform:translateY(0);}}
+    .fade {opacity:0;}
+    .fade.visible {animation: fadeIn 1.2s ease forwards;}
+
+    /* Hero Section */
+    .hero {
+        height:100vh;
+        background: url('Banniere.png') no-repeat center center/cover;
+        display:flex; flex-direction:column; justify-content:center; align-items:center;
+        text-align:center;
+        position:relative;
     }
-    .btn-gradient:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    .overlay {
+        position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);
     }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+    .hero h1 {
+        font-size:3rem; font-weight:700; position:relative; z-index:2; margin-bottom:20px;
     }
+    #typing {color:#FFD700;}
+
+    .btn {
+        padding:15px 30px; background:#FFD700; color:#000; font-weight:bold;
+        border:none; cursor:pointer; font-size:1.2rem; border-radius:5px; position:relative; z-index:2;
+        transition:0.3s;
+    }
+    .btn:hover {background:#fff; color:#000;}
 
     /* Sections */
-    section {
-      padding: 60px 20px;
-      text-align: center;
+    section {padding:80px 10%; position:relative;}
+    h2 {font-size:2rem; margin-bottom:20px; text-align:center;}
+
+    .about {display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:40px;}
+    .about img {width:250px; border-radius:50%; border:3px solid #FFD700;}
+    .about-text {max-width:500px; text-align:left;}
+
+    /* Playlist */
+    .playlist {
+        background:url('Logo (PNG).png') no-repeat center/20%;
+        background-attachment:fixed; text-align:center;
     }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    section p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
+    .playlist iframe {
+        width:100%; height:400px; border:none; border-radius:10px;
     }
 
-    /* Beats Grid */
-    .beats-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .beat-card {
-      background: #111;
-      border-radius: 12px;
-      padding: 20px;
-      width: 280px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-    }
-    .beat-card h3 {
-      margin-bottom: 10px;
-    }
-    .beat-card iframe {
-      width: 100%;
-      height: 160px;
-      border-radius: 8px;
-    }
+    /* Social Icons */
+    .socials {text-align:center; margin-top:50px;}
+    .socials a {margin:0 15px; display:inline-block; transition:0.3s;}
+    .socials img {width:50px; filter:drop-shadow(0 0 5px #FFD700);}
+    .socials a:hover img {transform:scale(1.2); filter:drop-shadow(0 0 15px #FFD700);}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    /* Responsive */
-    @media(max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      section h2 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+    /* Newsletter */
+    .newsletter {background:#111; padding:50px; border-radius:10px; text-align:center; max-width:600px; margin:50px auto;}
+    .newsletter iframe {width:100%; height:350px; border:none;}
+    
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Géraldo | Afro-Fusion & Trap Beats</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#beats">Beats</a>
-      <a href="#packs">Packs</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="overlay"></div>
+    <h1 id="typing"></h1>
+    <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore My World</button>
+</section>
 
-  <!-- HOME SECTION -->
-  <section id="home">
-    <h2>Bienvenue</h2>
-    <p>Explorez mes beats afro-fusion, trap et vibes tropicales. Disponibles pour écoute et téléchargement.</p>
-    <a href="https://youtube.com/@g8raldo" class="btn-gradient">Écouter sur YouTube</a>
-    <a href="#contact" class="btn-gradient">Contactez-moi</a>
-  </section>
+<!-- About -->
+<section class="about fade" id="about">
+    <img src="Profile.png" alt="Géraldo">
+    <div class="about-text">
+        <h2>À Propos de Moi</h2>
+        <p>Je suis Géraldo, producteur de beats uniques fusionnant Trap, Afro et Reggae. Bienvenue dans mon univers sonore !</p>
+    </div>
+</section>
 
-  <!-- BEATS SECTION -->
-  <section id="beats">
-    <h2>Mes Beats</h2>
-    <p>Sélectionne un beat et choisis ta licence.</p>
-    <div class="beats-grid">
-      <div class="beat-card">
-        <h3>Trapical Storm</h3>
-        <iframe src="https://www.youtube.com/embed/ID_VIDEO" frameborder="0" allowfullscreen></iframe>
-        <a href="#" class="btn-gradient">Acheter</a>
-      </div>
-      <div class="beat-card">
-        <h3>Velvet Grip</h3>
-        <iframe src="https://www.youtube.com/embed/ID_VIDEO" frameborder="0" allowfullscreen></iframe>
-        <a href="#" class="btn-gradient">Acheter</a>
-      </div>
-      <div class="beat-card">
-        <h3>Whisperwave</h3>
-        <iframe src="https://www.youtube.com/embed/ID_VIDEO" frameborder="0" allowfullscreen></iframe>
-        <a href="#" class="btn-gradient">Acheter</a
+<!-- Playlist -->
+<section class="playlist fade">
+    <h2>🎵 Écoutez Mes Beats</h2>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9" allowfullscreen></iframe>
+</section>
+
+<!-- Social Links -->
+<section class="fade">
+    <h2>🌐 Suivez-moi</h2>
+    <div class="socials">
+        <a href="https://www.tiktok.com/@g8raldo" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok"></a>
+        <a href="https://x.com/g8raldo/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X"></a>
+        <a href="https://www.youtube.com/@gxrxldo" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter fade">
+    <h2>Inscrivez-vous à la Newsletter</h2>
+    <!-- Brevo Form intégré -->
+    <iframe src="https://59b805c3.sibforms.com/serve/MUIFAGBaljFvC737h2t5Wz_BxCR03Awpj3CGct-QII7k3AC58iWQrNN8KQat4jOv-vYDN0k5PMVifVFo3vjkOpjNP_ePZMyjLaXHinKtn-pSoHJxHegApz6rHLRI-KbCv45bDk8jMeMP4NNV82Ov838vVEP8jfPWj0VmUBKYdiXCVRHdP9oWZ2rRQZgoY3Sy5tqeDO7W_QsBj1hP" scrolling="no"></iframe>
+</section>
+
+<script>
+    // Typing Effect
+    const text = ["Welcome To My Universe", "Bienvenue Dans Mon Univers"];
+    let index = 0, charIndex = 0;
+    const typingElement = document.getElementById('typing');
+
+    function type() {
+        if (charIndex < text[index].length) {
+            typingElement.textContent += text[index][charIndex];
+            charIndex++;
+            setTimeout(type, 100);
+        } else {
+            setTimeout(() => {
+                typingElement.textContent = '';
+                index = (index + 1) % text.length;
+                charIndex = 0;
+                type();
+            }, 2000);
+        }
+    }
+    type();
+
+    // Scroll Animation
+    const fades = document.querySelectorAll('.fade');
+    window.addEventListener('scroll', () => {
+        fades.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('visible');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
