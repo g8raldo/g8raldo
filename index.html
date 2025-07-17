@@ -8,12 +8,7 @@
     /* Reset */
     * {margin:0; padding:0; box-sizing:border-box;}
     body {font-family: 'Roboto', sans-serif; color:#fff; background:#000; overflow-x:hidden;}
-
-    /* Animations */
-    @keyframes fadeIn {0%{opacity:0; transform:translateY(30px);} 100%{opacity:1; transform:translateY(0);}}
-    .fade {opacity:0;}
-    .fade.visible {animation: fadeIn 1.2s ease forwards;}
-
+    
     /* Hero Section */
     .hero {
         height:100vh;
@@ -23,36 +18,31 @@
         position:relative;
     }
     .overlay {
-        position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);
+        position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);
     }
     .hero h1 {
-        font-size:3rem; font-weight:700; position:relative; z-index:2; margin-bottom:20px;
+        font-size:3rem; font-weight:700; position:relative; z-index:2;
+        opacity:0; animation: fadeIn 2s ease forwards;
     }
     #typing {color:#FFD700;}
-
+    @keyframes fadeIn {to{opacity:1;}}
+    
+    /* Button */
     .btn {
-        padding:15px 30px; background:#FFD700; color:#000; font-weight:bold;
-        border:none; cursor:pointer; font-size:1.2rem; border-radius:5px; position:relative; z-index:2;
+        margin-top:20px; padding:15px 30px; background:#FFD700; color:#000; font-weight:bold;
+        border:none; cursor:pointer; font-size:1.2rem; border-radius:5px;
         transition:0.3s;
     }
     .btn:hover {background:#fff; color:#000;}
 
     /* Sections */
     section {padding:80px 10%; position:relative;}
-    h2 {font-size:2rem; margin-bottom:20px; text-align:center;}
-
-    .about {display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:40px;}
+    .about {display:flex; align-items:center; justify-content:center; gap:50px;}
     .about img {width:250px; border-radius:50%; border:3px solid #FFD700;}
-    .about-text {max-width:500px; text-align:left;}
+    .about-text {max-width:500px;}
 
     /* Playlist */
-    .playlist {
-        background:url('Logo (PNG).png') no-repeat center/20%;
-        background-attachment:fixed; text-align:center;
-    }
-    .playlist iframe {
-        width:100%; height:400px; border:none; border-radius:10px;
-    }
+    .playlist iframe {width:100%; height:400px; border:none; border-radius:10px;}
 
     /* Social Icons */
     .socials {text-align:center; margin-top:50px;}
@@ -61,9 +51,8 @@
     .socials a:hover img {transform:scale(1.2); filter:drop-shadow(0 0 15px #FFD700);}
 
     /* Newsletter */
-    .newsletter {background:#111; padding:50px; border-radius:10px; text-align:center; max-width:600px; margin:50px auto;}
-    .newsletter iframe {width:100%; height:350px; border:none;}
-    
+    .newsletter {background:#111; padding:50px; border-radius:10px; text-align:center;}
+
 </style>
 </head>
 <body>
@@ -76,7 +65,7 @@
 </section>
 
 <!-- About -->
-<section class="about fade" id="about">
+<section class="about" id="about">
     <img src="Profile.png" alt="Géraldo">
     <div class="about-text">
         <h2>À Propos de Moi</h2>
@@ -85,14 +74,14 @@
 </section>
 
 <!-- Playlist -->
-<section class="playlist fade">
-    <h2>🎵 Écoutez Mes Beats</h2>
+<section class="playlist" style="background:url('Logo (PNG).png') no-repeat center/20%; background-attachment:fixed;">
+    <h2 style="text-align:center; margin-bottom:20px;">🎵 Écoutez Mes Beats</h2>
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9" allowfullscreen></iframe>
 </section>
 
 <!-- Social Links -->
-<section class="fade">
-    <h2>🌐 Suivez-moi</h2>
+<section>
+    <h2 style="text-align:center;">🌐 Suivez-moi</h2>
     <div class="socials">
         <a href="https://www.tiktok.com/@g8raldo" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok"></a>
         <a href="https://x.com/g8raldo/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X"></a>
@@ -101,10 +90,10 @@
 </section>
 
 <!-- Newsletter -->
-<section class="newsletter fade">
+<section class="newsletter">
     <h2>Inscrivez-vous à la Newsletter</h2>
-    <!-- Brevo Form intégré -->
-    <iframe src="https://59b805c3.sibforms.com/serve/MUIFAGBaljFvC737h2t5Wz_BxCR03Awpj3CGct-QII7k3AC58iWQrNN8KQat4jOv-vYDN0k5PMVifVFo3vjkOpjNP_ePZMyjLaXHinKtn-pSoHJxHegApz6rHLRI-KbCv45bDk8jMeMP4NNV82Ov838vVEP8jfPWj0VmUBKYdiXCVRHdP9oWZ2rRQZgoY3Sy5tqeDO7W_QsBj1hP" scrolling="no"></iframe>
+    <!-- Brevo Form -->
+    <!-- COLLE TON CODE BREVO ICI -->
 </section>
 
 <script>
@@ -128,17 +117,6 @@
         }
     }
     type();
-
-    // Scroll Animation
-    const fades = document.querySelectorAll('.fade');
-    window.addEventListener('scroll', () => {
-        fades.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-                el.classList.add('visible');
-            }
-        });
-    });
 </script>
 
 </body>
