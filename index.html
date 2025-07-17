@@ -1,122 +1,192 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Géraldo | Official Website</title>
-<style>
-    /* Reset */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: 'Roboto', sans-serif; color:#fff; background:#000; overflow-x:hidden;}
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Géraldo | Afro-Fusion & Trap Beats</title>
+  <style>
+    body { margin: 0; font-family: 'Arial', sans-serif; background: #000; color: #fff; scroll-behavior: smooth; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #111; padding: 15px 20px;
+    }
+    header img.logo { width: 50px; height: 50px; border-radius: 50%; }
+    nav a {
+      margin: 0 10px; text-decoration: none; color: #fff; font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover { color: #ffd700; }
+    .lang-switch {
+      background: none; border: 1px solid #fff; color: #fff; padding: 5px 10px;
+      cursor: pointer; border-radius: 8px;
+    }
+
     /* Hero Section */
-    .hero {
-        height:100vh;
-        background: url('Banniere.png') no-repeat center center/cover;
-        display:flex; flex-direction:column; justify-content:center; align-items:center;
-        text-align:center;
-        position:relative;
+    #home {
+      position: relative; height: 100vh; display: flex; align-items: center;
+      justify-content: center; flex-direction: column; text-align: center;
+      background: url('Profile.png') center/cover no-repeat;
     }
-    .overlay {
-        position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);
+    #home::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
     }
-    .hero h1 {
-        font-size:3rem; font-weight:700; position:relative; z-index:2;
-        opacity:0; animation: fadeIn 2s ease forwards;
-    }
-    #typing {color:#FFD700;}
-    @keyframes fadeIn {to{opacity:1;}}
-    
-    /* Button */
-    .btn {
-        margin-top:20px; padding:15px 30px; background:#FFD700; color:#000; font-weight:bold;
-        border:none; cursor:pointer; font-size:1.2rem; border-radius:5px;
-        transition:0.3s;
-    }
-    .btn:hover {background:#fff; color:#000;}
+    #home h2, #home p, #home a { position: relative; z-index: 2; }
+    #home h2 { font-size: 3rem; margin-bottom: 15px; }
+    #home p { font-size: 1.2rem; margin-bottom: 25px; }
 
-    /* Sections */
-    section {padding:80px 10%; position:relative;}
-    .about {display:flex; align-items:center; justify-content:center; gap:50px;}
-    .about img {width:250px; border-radius:50%; border:3px solid #FFD700;}
-    .about-text {max-width:500px;}
+    /* Gradient Buttons */
+    .btn-gradient {
+      background: linear-gradient(270deg, #ff0000, #ff6600, #ffd700, #00ff66, #0066ff, #ff0000);
+      background-size: 800% 800%; animation: gradientMove 8s linear infinite;
+      color: #fff; padding: 14px 28px; border-radius: 12px; font-weight: bold;
+      text-transform: uppercase; border: none; display: inline-block;
+      margin: 10px; text-decoration: none; font-size: 1rem;
+      transition: transform 0.4s ease;
+    }
+    .btn-gradient:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
 
-    /* Playlist */
-    .playlist iframe {width:100%; height:400px; border:none; border-radius:10px;}
+    section { padding: 60px 20px; text-align: center; }
+    section h2 { font-size: 2rem; margin-bottom: 20px; }
+    section p { font-size: 1.1rem; margin-bottom: 30px; }
 
-    /* Social Icons */
-    .socials {text-align:center; margin-top:50px;}
-    .socials a {margin:0 15px; display:inline-block; transition:0.3s;}
-    .socials img {width:50px; filter:drop-shadow(0 0 5px #FFD700);}
-    .socials a:hover img {transform:scale(1.2); filter:drop-shadow(0 0 15px #FFD700);}
+    .beats-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+    }
+    .beat-card {
+      background: #111; border-radius: 12px; padding: 20px; width: 280px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+    .beat-card iframe { width: 100%; height: 160px; border-radius: 8px; }
+
+    /* License Table */
+    .license-table {
+      width: 90%; margin: 20px auto; border-collapse: collapse; color: #fff;
+    }
+    .license-table th, .license-table td {
+      border: 1px solid #444; padding: 12px;
+    }
+    .license-table th { background: #111; }
+    .license-table td { background: #222; }
 
     /* Newsletter */
-    .newsletter {background:#111; padding:50px; border-radius:10px; text-align:center;}
+    .newsletter input {
+      padding: 12px; border-radius: 8px; border: none; width: 60%;
+      max-width: 300px; margin-bottom: 15px;
+    }
 
-</style>
+    footer { text-align: center; padding: 20px; background: #111; font-size: 0.9rem; color: #888; }
+
+    @media(max-width: 768px) {
+      #home h2 { font-size: 2rem; }
+      .beats-grid { flex-direction: column; align-items: center; }
+    }
+    .en { display: none; }
+  </style>
 </head>
 <body>
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="overlay"></div>
-    <h1 id="typing"></h1>
-    <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore My World</button>
+<header>
+  <img src="Profile.png" alt="Logo Géraldo" class="logo">
+  <nav>
+    <a href="#home" class="fr">Accueil</a><a href="#home" class="en">Home</a>
+    <a href="#beats" class="fr">Beats</a><a href="#beats" class="en">Beats</a>
+    <a href="#packs" class="fr">Packs</a><a href="#packs" class="en">Packs</a>
+    <a href="#contact" class="fr">Contact</a><a href="#contact" class="en">Contact</a>
+  </nav>
+  <button class="lang-switch" onclick="switchLang()">EN</button>
+</header>
+
+<!-- HERO -->
+<section id="home">
+  <h2 class="fr">Géraldo Beats</h2><h2 class="en">Géraldo Beats</h2>
+  <p class="fr">Afro-Fusion • Trap • Vibes Tropicales</p>
+  <p class="en">Afro-Fusion • Trap • Tropical Vibes</p>
+  <a href="https://youtube.com/@g8raldo" class="btn-gradient fr">Écouter sur YouTube</a>
+  <a href="https://youtube.com/@g8raldo" class="btn-gradient en">Listen on YouTube</a>
 </section>
 
-<!-- About -->
-<section class="about" id="about">
-    <img src="Profile.png" alt="Géraldo">
-    <div class="about-text">
-        <h2>À Propos de Moi</h2>
-        <p>Je suis Géraldo, producteur de beats uniques fusionnant Trap, Afro et Reggae. Bienvenue dans mon univers sonore !</p>
-    </div>
+<!-- BEATS -->
+<section id="beats">
+  <h2 class="fr">Mes Beats</h2><h2 class="en">My Beats</h2>
+  <p class="fr">Sélectionne un beat et choisis ta licence.</p>
+  <p class="en">Select a beat and choose your license.</p>
+
+  <!-- Lecteur Airbit -->
+  <iframe src="https://airbit.com/embed/playlist/YOUR-PLAYLIST-ID" width="100%" height="500" frameborder="0"></iframe>
+
+  <h3 class="fr">Licences</h3><h3 class="en">Licenses</h3>
+  <table class="license-table">
+    <tr>
+      <th class="fr">Type</th><th class="fr">Prix</th><th class="fr">Droits</th>
+      <th class="en">Type</th><th class="en">Price</th><th class="en">Rights</th>
+    </tr>
+    <tr>
+      <td class="fr">MP3 Lease</td><td>29€</td><td class="fr">Streaming illimité</td>
+      <td class="en">MP3 Lease</td><td>$29</td><td class="en">Unlimited streaming</td>
+    </tr>
+    <tr>
+      <td class="fr">WAV Lease</td><td>49€</td><td class="fr">Usage commercial</td>
+      <td class="en">WAV Lease</td><td>$49</td><td class="en">Commercial use</td>
+    </tr>
+    <tr>
+      <td class="fr">Exclusive</td><td>Sur devis</td><td class="fr">Propriété complète</td>
+      <td class="en">Exclusive</td><td>Contact</td><td class="en">Full ownership</td>
+    </tr>
+  </table>
 </section>
 
-<!-- Playlist -->
-<section class="playlist" style="background:url('Logo (PNG).png') no-repeat center/20%; background-attachment:fixed;">
-    <h2 style="text-align:center; margin-bottom:20px;">🎵 Écoutez Mes Beats</h2>
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9" allowfullscreen></iframe>
+<!-- PACKS -->
+<section id="packs">
+  <h2 class="fr">Packs Visuels</h2><h2 class="en">Visual Packs</h2>
+  <p class="fr">Télécharge des effets animés pour CapCut (glitch, fumée, particules).</p>
+  <p class="en">Download animated effects for CapCut (glitch, smoke, particles).</p>
+  <a href="#" class="btn-gradient fr">Télécharger Pack</a>
+  <a href="#" class="btn-gradient en">Download Pack</a>
 </section>
 
-<!-- Social Links -->
+<!-- NEWSLETTER -->
 <section>
-    <h2 style="text-align:center;">🌐 Suivez-moi</h2>
-    <div class="socials">
-        <a href="https://www.tiktok.com/@g8raldo" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok"></a>
-        <a href="https://x.com/g8raldo/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X"></a>
-        <a href="https://www.youtube.com/@gxrxldo" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
-    </div>
+  <h2 class="fr">Newsletter</h2><h2 class="en">Newsletter</h2>
+  <p class="fr">Reçois mes nouveautés avant tout le monde.</p>
+  <p class="en">Get my latest beats before everyone.</p>
+  <div class="newsletter">
+    <input type="email" placeholder="Email">
+    <br>
+    <a href="#" class="btn-gradient fr">S'inscrire</a>
+    <a href="#" class="btn-gradient en">Subscribe</a>
+  </div>
 </section>
 
-<!-- Newsletter -->
-<section class="newsletter">
-    <h2>Inscrivez-vous à la Newsletter</h2>
-    <!-- Brevo Form -->
-    <!-- COLLE TON CODE BREVO ICI -->
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="fr">Contact</h2><h2 class="en">Contact</h2>
+  <p class="fr">Écris-moi : <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+  <p class="en">Write me: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+  <a href="mailto:contact@g8raldo.com" class="btn-gradient fr">Envoyer un Email</a>
+  <a href="mailto:contact@g8raldo.com" class="btn-gradient en">Send Email</a>
 </section>
+
+<footer>
+  © 2025 Géraldo | Afro-Fusion & Trap Beats
+</footer>
 
 <script>
-    // Typing Effect
-    const text = ["Welcome To My Universe", "Bienvenue Dans Mon Univers"];
-    let index = 0, charIndex = 0;
-    const typingElement = document.getElementById('typing');
-
-    function type() {
-        if (charIndex < text[index].length) {
-            typingElement.textContent += text[index][charIndex];
-            charIndex++;
-            setTimeout(type, 100);
-        } else {
-            setTimeout(() => {
-                typingElement.textContent = '';
-                index = (index + 1) % text.length;
-                charIndex = 0;
-                type();
-            }, 2000);
-        }
-    }
-    type();
+function switchLang() {
+  let fr = document.querySelectorAll('.fr');
+  let en = document.querySelectorAll('.en');
+  let btn = document.querySelector('.lang-switch');
+  if (btn.textContent === 'EN') {
+    fr.forEach(el => el.style.display = 'none');
+    en.forEach(el => el.style.display = 'inline');
+    btn.textContent = 'FR';
+  } else {
+    fr.forEach(el => el.style.display = 'inline');
+    en.forEach(el => el.style.display = 'none');
+    btn.textContent = 'EN';
+  }
+}
 </script>
 
 </body>
