@@ -125,4 +125,26 @@ const enElements = document.querySelectorAll('.en');
 switchBtn.addEventListener('click', () => {
   const toEN = (switchBtn.textContent === 'EN');
   frElements.forEach(el => el.style.display = toEN ? 'none' : 'block');
-  enElem
+  enElements.forEach(el => el.style.display = toEN ? 'block' : 'none');
+  switchBtn.textContent = toEN ? 'FR' : 'EN';
+  document.documentElement.lang = toEN ? 'en' : 'fr';
+});
+
+/* ------------------------------
+   Logo Glow Interaction (JS mix)
+------------------------------ */
+const galaxyLogo = document.getElementById('galaxyLogo');
+if (galaxyLogo) {
+  galaxyLogo.addEventListener('mouseenter', () => {
+    galaxyLogo.classList.add('glow');
+  });
+  galaxyLogo.addEventListener('mouseleave', () => {
+    galaxyLogo.classList.remove('glow');
+  });
+  galaxyLogo.addEventListener('focus', () => galaxyLogo.classList.add('glow'));
+  galaxyLogo.addEventListener('blur', () => galaxyLogo.classList.remove('glow'));
+}
+</script>
+
+</body>
+</html>
