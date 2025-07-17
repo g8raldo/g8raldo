@@ -5,95 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome To My Galaxy</title>
   <link rel="stylesheet" href="style.css">
-  <script src="bg-animation.js" defer></script>
+  <link rel="icon" type="image/png" href="favicon.ico">
 </head>
 <body>
+  <!-- Animation de fond -->
+  <script src="bg-animation.js" defer></script>
+
+  <!-- HEADER -->
   <header>
-    <nav>
-      <div class="logo">
-        <img src="assets/logos/logo.png" alt="Logo" class="logo-img">
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="assets/logos/logo.png" alt="Logo Géraldo" class="logo-small">
       </div>
-      <ul>
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#music">Music</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="lang-switch">
-        <button onclick="switchLang('en')">EN</button>
-        <button onclick="switchLang('fr')">FR</button>
+      <div class="theme-switch">
+        <label>
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
       </div>
     </nav>
   </header>
 
-  <!-- Home Section -->
-  <section id="home" class="section active">
-    <div class="content">
-      <img src="assets/logos/logo.png" alt="Decorative Logo" class="hero-logo animate-logo">
-      <h1>Welcome To My Galaxy</h1>
-      <p class="tagline">The Universe Of Unique Vibes</p>
-      <p class="bio">
-        Géraldo is a Mauritian singer, songwriter and music producer.<br>
-        Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade.
-        His music is described as the perfect marriage between art, movement, mood, science and technology.
-      </p>
+  <!-- SECTION HERO -->
+  <section id="home" class="hero">
+    <img src="assets/logos/logo.png" alt="Logo Géraldo" class="logo-big">
+    <h1>Welcome To My Galaxy</h1>
+    <h2>The Universe Of Unique Vibes</h2>
+    <p class="bio">
+      Géraldo is a Mauritian singer, songwriter and music producer.<br>
+      Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade. His music is described as the perfect marriage between art, movement, mood, science and technology.
+    </p>
+  </section>
+
+  <!-- SECTION MUSIC -->
+  <section id="music" class="music-section">
+    <h2>Find My Music</h2>
+    <div class="store-links">
+      <a href="#"><img src="assets/logos/stores/airbit-512.png" alt="Airbit"></a>
+      <a href="#"><img src="assets/logos/stores/soundee-512.png" alt="Soundee"></a>
+      <a href="#"><img src="assets/logos/stores/traktrain-512.png" alt="Traktrain"></a>
     </div>
   </section>
 
-  <!-- Music Section -->
-  <section id="music" class="section">
-    <h2>Listen On Stores</h2>
-    <div class="store-logos">
-      <img src="assets/logos/stores/airbit-512.png" alt="Airbit">
-      <img src="assets/logos/stores/soundee-512.png" alt="Soundee">
-      <img src="assets/logos/stores/traktrain-512.png" alt="Traktrain">
+  <!-- SECTION CONTACT -->
+  <section id="contact" class="contact-section">
+    <h2>Stay Connected</h2>
+    <div class="social-links">
+      <a href="#"><img src="assets/logos/socials/youtube-512.png" alt="YouTube"></a>
+      <a href="#"><img src="assets/logos/socials/tiktok-512.png" alt="TikTok"></a>
+      <a href="#"><img src="assets/logos/socials/x-512.png" alt="Twitter"></a>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <h2>Contact</h2>
     <p>Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-    <div class="social-logos">
-      <a href="https://www.youtube.com/@G8raldo" target="_blank"><img src="assets/logos/socials/youtube-512.png" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@g8raldo" target="_blank"><img src="assets/logos/socials/tiktok-512.png" alt="TikTok"></a>
-      <a href="https://twitter.com/g8raldo" target="_blank"><img src="assets/logos/socials/x-512.png" alt="Twitter"></a>
-    </div>
   </section>
 
-  <script>
-    // Switch language
-    function switchLang(lang) {
-      const enText = {
-        home: "Welcome To My Galaxy",
-        tagline: "The Universe Of Unique Vibes",
-        bio: "Géraldo is a Mauritian singer, songwriter and music producer.<br>Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade. His music is described as the perfect marriage between art, movement, mood, science and technology.",
-        contact: "Contact",
-      };
-      const frText = {
-        home: "Bienvenue dans ma Galaxie",
-        tagline: "L'univers des Vibes Uniques",
-        bio: "Géraldo est un chanteur, auteur-compositeur et producteur mauricien.<br>Visionnaire, Géraldo est une force créative dans l'industrie musicale depuis plus d'une décennie. Sa musique est décrite comme un mariage parfait entre art, mouvement, humeur, science et technologie.",
-        contact: "Contact",
-      };
-
-      const text = lang === 'en' ? enText : frText;
-      document.querySelector('h1').innerHTML = text.home;
-      document.querySelector('.tagline').innerHTML = text.tagline;
-      document.querySelector('.bio').innerHTML = text.bio;
-      document.querySelector('#contact h2').innerHTML = text.contact;
-    }
-
-    // Navigation animation
-    const links = document.querySelectorAll('nav ul li a');
-    const sections = document.querySelectorAll('.section');
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        sections.forEach(sec => sec.classList.remove('active'));
-        target.classList.add('active');
-      });
-    });
-  </script>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Géraldo. All rights reserved.</p>
+  </footer>
 </body>
 </html>
