@@ -1,150 +1,99 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome To My Galaxy</title>
-  <meta name="description" content="The Universe Of Unique Vibes – Bienvenue dans ma Galaxie. Music, Stores, Contact & Global Vibes." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css">
+  <script src="bg-animation.js" defer></script>
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="assets/logos/logo.png" alt="Logo" class="logo-img">
+      </div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="lang-switch">
+        <button onclick="switchLang('en')">EN</button>
+        <button onclick="switchLang('fr')">FR</button>
+      </div>
+    </nav>
+  </header>
 
-<header>
-  <nav>
-    <a href="#home" class="nav-link active">Home</a>
-    <a href="#music" class="nav-link">Music</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
-  <button class="lang-switch">EN</button>
-</header>
+  <!-- Home Section -->
+  <section id="home" class="section active">
+    <div class="content">
+      <img src="assets/logos/logo.png" alt="Decorative Logo" class="hero-logo animate-logo">
+      <h1>Welcome To My Galaxy</h1>
+      <p class="tagline">The Universe Of Unique Vibes</p>
+      <p class="bio">
+        Géraldo is a Mauritian singer, songwriter and music producer.<br>
+        Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade.
+        His music is described as the perfect marriage between art, movement, mood, science and technology.
+      </p>
+    </div>
+  </section>
 
-<!-- HOME -->
-<section id="home">
-  <img src="assets/logos/Logo.png" alt="Logo Géraldo" class="logo-animated" id="galaxyLogo" />
-  <h2 class="fr">Bienvenue dans ma Galaxie</h2>
-  <h2 class="en">Welcome To My Galaxy</h2>
-  <p class="fr">L'univers des Vibes Uniques</p>
-  <p class="en">The Universe Of Unique Vibes</p>
+  <!-- Music Section -->
+  <section id="music" class="section">
+    <h2>Listen On Stores</h2>
+    <div class="store-logos">
+      <img src="assets/logos/stores/airbit-512.png" alt="Airbit">
+      <img src="assets/logos/stores/soundee-512.png" alt="Soundee">
+      <img src="assets/logos/stores/traktrain-512.png" alt="Traktrain">
+    </div>
+  </section>
 
-  <div class="bio en">
-    Géraldo is a Mauritian singer, songwriter and music producer.<br><br>
-    Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade. His music is described as the perfect marriage between art, movement, mood, science and technology.
-  </div>
-  <div class="bio fr">
-    Géraldo est un chanteur, auteur-compositeur et producteur mauricien.<br><br>
-    Visionnaire, Géraldo est une force créative dans l'industrie musicale et au-delà depuis plus d'une décennie. Sa musique est décrite comme le mariage parfait entre l'art, le mouvement, l'ambiance, la science et la technologie.
-  </div>
-</section>
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+    <div class="social-logos">
+      <a href="https://www.youtube.com/@G8raldo" target="_blank"><img src="assets/logos/socials/youtube-512.png" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@g8raldo" target="_blank"><img src="assets/logos/socials/tiktok-512.png" alt="TikTok"></a>
+      <a href="https://twitter.com/g8raldo" target="_blank"><img src="assets/logos/socials/x-512.png" alt="Twitter"></a>
+    </div>
+  </section>
 
-<!-- MUSIC -->
-<section id="music">
-  <h2 class="fr">Musique</h2>
-  <h2 class="en">Music</h2>
-  <p class="fr">Retrouve mes beats sur ces plateformes :</p>
-  <p class="en">Find my beats on these platforms:</p>
+  <script>
+    // Switch language
+    function switchLang(lang) {
+      const enText = {
+        home: "Welcome To My Galaxy",
+        tagline: "The Universe Of Unique Vibes",
+        bio: "Géraldo is a Mauritian singer, songwriter and music producer.<br>Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade. His music is described as the perfect marriage between art, movement, mood, science and technology.",
+        contact: "Contact",
+      };
+      const frText = {
+        home: "Bienvenue dans ma Galaxie",
+        tagline: "L'univers des Vibes Uniques",
+        bio: "Géraldo est un chanteur, auteur-compositeur et producteur mauricien.<br>Visionnaire, Géraldo est une force créative dans l'industrie musicale depuis plus d'une décennie. Sa musique est décrite comme un mariage parfait entre art, mouvement, humeur, science et technologie.",
+        contact: "Contact",
+      };
 
-  <div class="stores">
-    <a href="https://airbit.com/g8raldo" target="_blank" class="store-link airbit">
-      <img src="assets/logos/stores/airbit.png" alt="Airbit Logo"> Airbit
-    </a>
-    <a href="https://soundee.com/g8raldo" target="_blank" class="store-link soundee">
-      <img src="assets/logos/stores/soundee.png" alt="Soundee Logo"> Soundee
-    </a>
-    <a href="https://traktrain.com/g8raldo" target="_blank" class="store-link traktrain">
-      <img src="assets/logos/stores/traktrain.png" alt="Traktrain Logo"> Traktrain
-    </a>
-  </div>
-</section>
+      const text = lang === 'en' ? enText : frText;
+      document.querySelector('h1').innerHTML = text.home;
+      document.querySelector('.tagline').innerHTML = text.tagline;
+      document.querySelector('.bio').innerHTML = text.bio;
+      document.querySelector('#contact h2').innerHTML = text.contact;
+    }
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="fr">Contact</h2>
-  <h2 class="en">Contact</h2>
-  <p class="fr">Email : <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-  <p class="en">Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-
-  <div class="socials">
-    <a href="https://tiktok.com/@g8raldo" target="_blank" class="tiktok">
-      <img src="assets/logos/socials/tiktok.png" alt="TikTok">
-    </a>
-    <a href="https://x.com/g8raldo" target="_blank" class="x">
-      <img src="assets/logos/socials/x.png" alt="X">
-    </a>
-    <a href="https://youtube.com/@g8raldo" target="_blank" class="youtube">
-      <img src="assets/logos/socials/youtube.png" alt="YouTube">
-    </a>
-  </div>
-</section>
-
-<footer>
-  © 2025 The Universe Of Unique Vibes
-</footer>
-
-<script>
-/* ------------------------------
-   Sticky header + active nav link
------------------------------- */
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  header.classList.toggle('scrolled', window.scrollY > 50);
-
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('.nav-link');
-  let current = '';
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120; // header offset
-    if (pageYOffset >= sectionTop) current = section.id;
-  });
-
-  links.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').includes(current)) link.classList.add('active');
-  });
-});
-
-/* ------------------------------
-   Fade-in when visible
------------------------------- */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-
-/* ------------------------------
-   Language Switch
------------------------------- */
-const switchBtn = document.querySelector('.lang-switch');
-const frElements = document.querySelectorAll('.fr');
-const enElements = document.querySelectorAll('.en');
-
-switchBtn.addEventListener('click', () => {
-  const toEN = (switchBtn.textContent === 'EN');
-  frElements.forEach(el => el.style.display = toEN ? 'none' : 'block');
-  enElements.forEach(el => el.style.display = toEN ? 'block' : 'none');
-  switchBtn.textContent = toEN ? 'FR' : 'EN';
-  document.documentElement.lang = toEN ? 'en' : 'fr';
-});
-
-/* ------------------------------
-   Logo Glow Interaction (JS mix)
------------------------------- */
-const galaxyLogo = document.getElementById('galaxyLogo');
-if (galaxyLogo) {
-  galaxyLogo.addEventListener('mouseenter', () => {
-    galaxyLogo.classList.add('glow');
-  });
-  galaxyLogo.addEventListener('mouseleave', () => {
-    galaxyLogo.classList.remove('glow');
-  });
-  galaxyLogo.addEventListener('focus', () => galaxyLogo.classList.add('glow'));
-  galaxyLogo.addEventListener('blur', () => galaxyLogo.classList.remove('glow'));
-}
-</script>
-
+    // Navigation animation
+    const links = document.querySelectorAll('nav ul li a');
+    const sections = document.querySelectorAll('.section');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        sections.forEach(sec => sec.classList.remove('active'));
+        target.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
