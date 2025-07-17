@@ -5,43 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome To My Galaxy</title>
   <meta name="description" content="The Universe Of Unique Vibes – Bienvenue dans ma Galaxie. Music, Stores, Contact & Global Vibes." />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Arial', sans-serif; background: #000; color: #fff; scroll-behavior: smooth; }
-
-    /* HEADER */
-    header { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: center; gap: 20px; padding: 15px; background: rgba(0,0,0,0.4); transition: background 0.3s ease; z-index: 999; }
-    header.scrolled { background: rgba(0,0,0,0.9); }
-    nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1rem; transition: color 0.3s; }
-    nav a.active, nav a:hover { color: #ffd700; }
-
-    /* SECTIONS */
-    section { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; opacity: 0; transform: translateY(40px); transition: all 1s ease; }
-    section.visible { opacity: 1; transform: translateY(0); }
-
-    #home { background: url('Profile.png') center/cover no-repeat; position: relative; }
-    #home::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
-    #home * { position: relative; z-index: 2; }
-    #home h2 { font-size: 3rem; margin-bottom: 10px; }
-    #home p { font-size: 1.2rem; color: #ffd700; margin-bottom: 20px; }
-
-    .btn-gradient { background: linear-gradient(270deg, #ff0000, #ff6600, #ffd700, #00ff66, #0066ff, #ff0000); background-size: 800% 800%; animation: gradientMove 8s linear infinite; color: #fff; padding: 14px 28px; border-radius: 12px; font-weight: bold; text-transform: uppercase; border: none; text-decoration: none; font-size: 1rem; transition: transform 0.4s ease; }
-    .btn-gradient:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
-    @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-
-    /* MUSIC SECTION */
-    .stores { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
-    .store-link { display: flex; align-items: center; background: #111; padding: 12px 18px; border-radius: 8px; text-decoration: none; color: #fff; font-weight: bold; transition: background 0.3s; }
-    .store-link img { width: 28px; height: 28px; margin-right: 10px; }
-    .store-link:hover { background: #222; }
-
-    /* CONTACT SECTION */
-    .socials { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-    .socials a img { width: 32px; height: 32px; filter: brightness(0) invert(1); transition: transform 0.3s ease; }
-    .socials a img:hover { transform: scale(1.1); }
-
-    footer { text-align: center; padding: 20px; background: #111; font-size: 0.9rem; color: #888; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.ico" />
 </head>
 <body>
 
@@ -51,32 +16,64 @@
     <a href="#music" class="nav-link">Music</a>
     <a href="#contact" class="nav-link">Contact</a>
   </nav>
+  <button class="lang-switch">EN</button>
 </header>
 
+<!-- HOME -->
 <section id="home">
-  <h2>Welcome To My Galaxy</h2>
-  <p>The Universe Of Unique Vibes</p>
-  <p>Bienvenue dans ma Galaxie • L'univers des Vibes Uniques</p>
-  <a href="https://youtube.com/@g8raldo" class="btn-gradient">Listen on YouTube</a>
-</section>
+  <img src="assets/logos/Logo.png" alt="Logo Géraldo" class="logo-animated" id="galaxyLogo" />
+  <h2 class="fr">Bienvenue dans ma Galaxie</h2>
+  <h2 class="en">Welcome To My Galaxy</h2>
+  <p class="fr">L'univers des Vibes Uniques</p>
+  <p class="en">The Universe Of Unique Vibes</p>
 
-<section id="music">
-  <h2>Music</h2>
-  <p>Find my beats on these platforms:</p>
-  <div class="stores">
-    <a href="https://airbit.com/g8raldo" class="store-link"><img src="airbit-logo.png" alt="Airbit">Airbit</a>
-    <a href="https://soundee.com/g8raldo" class="store-link"><img src="soundee-logo.png" alt="Soundee">Soundee</a>
-    <a href="https://traktrain.com/g8raldo" class="store-link"><img src="traktrain-logo.png" alt="Traktrain">Traktrain</a>
+  <div class="bio en">
+    Géraldo is a Mauritian singer, songwriter and music producer.<br><br>
+    Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade. His music is described as the perfect marriage between art, movement, mood, science and technology.
+  </div>
+  <div class="bio fr">
+    Géraldo est un chanteur, auteur-compositeur et producteur mauricien.<br><br>
+    Visionnaire, Géraldo est une force créative dans l'industrie musicale et au-delà depuis plus d'une décennie. Sa musique est décrite comme le mariage parfait entre l'art, le mouvement, l'ambiance, la science et la technologie.
   </div>
 </section>
 
+<!-- MUSIC -->
+<section id="music">
+  <h2 class="fr">Musique</h2>
+  <h2 class="en">Music</h2>
+  <p class="fr">Retrouve mes beats sur ces plateformes :</p>
+  <p class="en">Find my beats on these platforms:</p>
+
+  <div class="stores">
+    <a href="https://airbit.com/g8raldo" target="_blank" class="store-link airbit">
+      <img src="assets/logos/stores/airbit.png" alt="Airbit Logo"> Airbit
+    </a>
+    <a href="https://soundee.com/g8raldo" target="_blank" class="store-link soundee">
+      <img src="assets/logos/stores/soundee.png" alt="Soundee Logo"> Soundee
+    </a>
+    <a href="https://traktrain.com/g8raldo" target="_blank" class="store-link traktrain">
+      <img src="assets/logos/stores/traktrain.png" alt="Traktrain Logo"> Traktrain
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+  <h2 class="fr">Contact</h2>
+  <h2 class="en">Contact</h2>
+  <p class="fr">Email : <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+  <p class="en">Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+
   <div class="socials">
-    <a href="https://tiktok.com/@g8raldo"><img src="tiktok-icon.png" alt="TikTok"></a>
-    <a href="https://x.com/g8raldo"><img src="x-icon.png" alt="X"></a>
-    <a href="https://youtube.com/@g8raldo"><img src="youtube-icon.png" alt="YouTube"></a>
+    <a href="https://tiktok.com/@g8raldo" target="_blank" class="tiktok">
+      <img src="assets/logos/socials/tiktok.png" alt="TikTok">
+    </a>
+    <a href="https://x.com/g8raldo" target="_blank" class="x">
+      <img src="assets/logos/socials/x.png" alt="X">
+    </a>
+    <a href="https://youtube.com/@g8raldo" target="_blank" class="youtube">
+      <img src="assets/logos/socials/youtube.png" alt="YouTube">
+    </a>
   </div>
 </section>
 
@@ -85,7 +82,9 @@
 </footer>
 
 <script>
-// Sticky header + highlight active link
+/* ------------------------------
+   Sticky header + active nav link
+------------------------------ */
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
   header.classList.toggle('scrolled', window.scrollY > 50);
@@ -95,8 +94,8 @@ window.addEventListener('scroll', () => {
   let current = '';
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+    const sectionTop = section.offsetTop - 120; // header offset
+    if (pageYOffset >= sectionTop) current = section.id;
   });
 
   links.forEach(link => {
@@ -105,7 +104,9 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Fade-in animation
+/* ------------------------------
+   Fade-in when visible
+------------------------------ */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -113,7 +114,15 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-</script>
 
-</body>
-</html>
+/* ------------------------------
+   Language Switch
+------------------------------ */
+const switchBtn = document.querySelector('.lang-switch');
+const frElements = document.querySelectorAll('.fr');
+const enElements = document.querySelectorAll('.en');
+
+switchBtn.addEventListener('click', () => {
+  const toEN = (switchBtn.textContent === 'EN');
+  frElements.forEach(el => el.style.display = toEN ? 'none' : 'block');
+  enElem
