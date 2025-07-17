@@ -5,18 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Géraldo | Afro-Fusion & Trap Beats</title>
   <style>
+    /* Base */
     body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
       background: #000;
       color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
+      scroll-behavior: smooth;
     }
-    .btn-gradient {
-      background: linear-gradient(90deg, #ff0000, #ff6600, #ffd700, #00ff66, #0066ff);
-      background-size: 300%;
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #111;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    nav {
+      margin-top: 15px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
       color: #fff;
-      padding: 12px 24px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* Gradient Buttons */
+    .btn-gradient {
+      background: linear-gradient(270deg, #ff0000, #ff6600, #ffd700, #00ff66, #0066ff, #ff0000);
+      background-size: 800% 800%;
+      animation: gradientMove 8s linear infinite;
+      color: #fff;
+      padding: 14px 28px;
       border-radius: 12px;
       font-weight: bold;
       text-transform: uppercase;
@@ -25,18 +51,110 @@
       display: inline-block;
       margin: 10px;
       text-decoration: none;
+      font-size: 1rem;
     }
     .btn-gradient:hover {
-      background-position: 100% 0;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
       transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    section p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    /* Beats Grid */
+    .beats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .beat-card {
+      background: #111;
+      border-radius: 12px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+    .beat-card h3 {
+      margin-bottom: 10px;
+    }
+    .beat-card iframe {
+      width: 100%;
+      height: 160px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenue sur le site de Géraldo</h1>
-  <p>Découvrez mes beats afro-fusion, trap & vibes tropicales.</p>
-  <a href="https://youtube.com/@g8raldo" class="btn-gradient">Écouter sur YouTube</a>
-  <a href="mailto:contact@g8raldo.com" class="btn-gradient">Contact</a>
-</body>
-</html>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Géraldo | Afro-Fusion & Trap Beats</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#beats">Beats</a>
+      <a href="#packs">Packs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HOME SECTION -->
+  <section id="home">
+    <h2>Bienvenue</h2>
+    <p>Explorez mes beats afro-fusion, trap et vibes tropicales. Disponibles pour écoute et téléchargement.</p>
+    <a href="https://youtube.com/@g8raldo" class="btn-gradient">Écouter sur YouTube</a>
+    <a href="#contact" class="btn-gradient">Contactez-moi</a>
+  </section>
+
+  <!-- BEATS SECTION -->
+  <section id="beats">
+    <h2>Mes Beats</h2>
+    <p>Sélectionne un beat et choisis ta licence.</p>
+    <div class="beats-grid">
+      <div class="beat-card">
+        <h3>Trapical Storm</h3>
+        <iframe src="https://www.youtube.com/embed/ID_VIDEO" frameborder="0" allowfullscreen></iframe>
+        <a href="#" class="btn-gradient">Acheter</a>
+      </div>
+      <div class="beat-card">
+        <h3>Velvet Grip</h3>
+        <iframe src="https://www.youtube.com/embed/ID_VIDEO" frameborder="0" allowfullscreen></iframe>
+        <a href="#" class="btn-gradient">Acheter</a>
+      </div>
+      <div class="beat-card">
+        <h3>Whisperwave</h3>
+        <iframe src="https://www.youtube.com/embed/ID_VIDEO" frameborder="0" allowfullscreen></iframe>
+        <a href="#" class="btn-gradient">Acheter</a
