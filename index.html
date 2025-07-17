@@ -1,133 +1,71 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Welcome To My Galaxy</title>
-  <meta name="description" content="The Universe Of Unique Vibes – Bienvenue dans ma Galaxie. Music, Stores, Contact." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.ico" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome To My Galaxy | G8raldo</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Etoiles animées -->
-<canvas id="bg-stars" aria-hidden="true"></canvas>
+<!-- Background Animation -->
+<canvas id="bg-animation"></canvas>
 
+<!-- HEADER -->
 <header>
   <nav>
-    <a href="#home" class="nav-link active">Home</a>
-    <a href="#music" class="nav-link">Music</a>
-    <a href="#contact" class="nav-link">Contact</a>
+    <div class="logo">G8raldo</div>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
-  <button class="lang-switch" type="button">EN</button>
 </header>
 
-<!-- HOME -->
-<section id="home" class="panel">
-  <img src="assets/logos/logo.png" alt="Logo" class="logo-animated" id="galaxyLogo" />
-  <h2 class="fr">Bienvenue dans ma Galaxie</h2>
-  <h2 class="en">Welcome To My Galaxy</h2>
-  <p class="fr">L'univers des Vibes Uniques</p>
-  <p class="en">The Universe Of Unique Vibes</p>
-
-  <div class="bio fr">
-    Géraldo est un chanteur, auteur-compositeur et producteur mauricien.<br><br>
-    Visionnaire, Géraldo est une force créative dans l'industrie musicale et au-delà depuis plus d'une décennie. Sa musique est décrite comme le mariage parfait entre l'art, le mouvement, l'ambiance, la science et la technologie.
-  </div>
-  <div class="bio en">
-    Géraldo is a Mauritian singer, songwriter and music producer.<br><br>
-    Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade. His music is described as the perfect marriage between art, movement, mood, science and technology.
+<!-- HOME SECTION -->
+<section id="home" class="section">
+  <div class="center-content">
+    <img src="assets/logos/logo.png" alt="G8raldo Logo" class="main-logo">
+    <h1>Welcome To My Galaxy</h1>
+    <p class="subtitle">The Universe Of Unique Vibes</p>
+    <p class="bio">
+      Géraldo is a Mauritian singer, songwriter and music producer.<br>
+      Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade.<br>
+      His music is described as the perfect marriage between art, movement, mood, science and technology.
+    </p>
   </div>
 </section>
 
-<!-- MUSIC -->
-<section id="music" class="panel alt">
-  <h2 class="fr">Musique</h2>
-  <h2 class="en">Music</h2>
-  <p class="fr">Retrouve mes beats sur ces plateformes :</p>
-  <p class="en">Find my beats on these platforms:</p>
-
-  <div class="stores">
-    <a href="https://airbit.com/g8raldo" target="_blank" rel="noopener" class="store-link airbit">
-      <img src="assets/logos/stores/airbit-512.png" alt="Airbit" /> Airbit
+<!-- CONTACT SECTION -->
+<section id="contact" class="section">
+  <h2>Stay Connected</h2>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@G8raldo" target="_blank">
+      <img src="assets/logos/socials/youtube-white-512.png" alt="YouTube">
     </a>
-    <a href="https://soundee.com/g8raldo" target="_blank" rel="noopener" class="store-link soundee">
-      <img src="assets/logos/stores/soundee-512.png" alt="Soundee" /> Soundee
+    <a href="https://www.tiktok.com/@g8raldo" target="_blank">
+      <img src="assets/logos/socials/tiktok-white-512.png" alt="TikTok">
     </a>
-    <a href="https://traktrain.com/g8raldo" target="_blank" rel="noopener" class="store-link traktrain">
-      <img src="assets/logos/stores/traktrain-512.png" alt="Traktrain" /> Traktrain
+    <a href="https://twitter.com/g8raldo" target="_blank">
+      <img src="assets/logos/socials/x-white-512.png" alt="X">
     </a>
+  </div>
+  <div class="store-buttons">
+    <a href="https://airbit.com/g8raldo" class="btn" target="_blank">Airbit</a>
+    <a href="https://soundee.com/g8raldo" class="btn" target="_blank">Soundee</a>
+    <a href="https://traktrain.com/g8raldo" class="btn" target="_blank">Traktrain</a>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="panel">
-  <h2 class="fr">Contact</h2>
-  <h2 class="en">Contact</h2>
-  <p class="fr">Email : <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-  <p class="en">Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-
-  <div class="socials">
-    <a href="https://www.youtube.com/@g8raldo" target="_blank" rel="noopener" class="youtube">
-      <img src="assets/logos/socials/youtube-white-512.png" alt="YouTube" />
-    </a>
-    <a href="https://www.tiktok.com/@g8raldo" target="_blank" rel="noopener" class="tiktok">
-      <img src="assets/logos/socials/tiktok-white-512.png" alt="TikTok" />
-    </a>
-    <a href="https://x.com/g8raldo" target="_blank" rel="noopener" class="x">
-      <img src="assets/logos/socials/x-white-512.png" alt="X" />
-    </a>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  © 2025 The Universe Of Unique Vibes
+  <p>© 2025 G8raldo. All rights reserved.</p>
 </footer>
 
+<!-- Scripts -->
 <script src="bg-animation.js"></script>
-<script>
-/* Sticky header + active nav link */
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  header.classList.toggle('scrolled', window.scrollY > 50);
-
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('.nav-link');
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (pageYOffset >= sectionTop) current = section.id;
-  });
-  links.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').includes(current)) link.classList.add('active');
-  });
-});
-
-/* Fade-in on scroll */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:0.3});
-document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-
-/* Lang switch */
-const switchBtn = document.querySelector('.lang-switch');
-const frEls = document.querySelectorAll('.fr');
-const enEls = document.querySelectorAll('.en');
-switchBtn.addEventListener('click', ()=>{
-  const toEN = (switchBtn.textContent === 'EN');
-  frEls.forEach(el=>el.style.display = toEN ? 'none':'block');
-  enEls.forEach(el=>el.style.display = toEN ? 'block':'none');
-  switchBtn.textContent = toEN ? 'FR':'EN';
-  document.documentElement.lang = toEN ? 'en':'fr';
-});
-
-/* Logo glow */
-const galaxyLogo = document.getElementById('galaxyLogo');
-if (galaxyLogo){
-  galaxyLogo.addEventListener('mouseenter',()=>galaxyLogo.classList.add('glow'));
-  galaxyLogo.addEventListener('mouseleave',()=>galaxyLogo.classList.remove('glow'));
-}
-</script>
 </body>
 </html>
