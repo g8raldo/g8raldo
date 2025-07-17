@@ -1,240 +1,149 @@
-/* ===========================
-   Base
-=========================== */
-:root {
-  --brand-gold: #ffd700;
-  --brand-bg-dark: #000;
-  --brand-bg-mid: #111;
-  --brand-bg-soft: #222;
-  --tiktok-teal: #69C9D0;
-  --tiktok-pink: #EE1D52;
-  --x-white: #ffffff;
-  --youtube-red: #ff0000;
-  --airbit-orange: #F7931E;
-  --soundee-coral: #FF7F50;
-  --traktrain-violet: #8B5CF6;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: var(--brand-bg-dark);
+  background: #000;
   color: #fff;
-  line-height: 1.4;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-/* Hide EN content by default; JS toggles */
-.en { display: none; }
-
-/* ===========================
-   Header / Nav
-=========================== */
 header {
-  position: fixed;
-  top: 0; left: 0;
   width: 100%;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
-  background: rgba(0,0,0,0.4);
-  transition: background 0.3s ease;
-  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  border-bottom: 1px solid #222;
 }
-header.scrolled { background: rgba(0,0,0,0.9); }
 
-nav a {
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  margin: 0 10px;
-  transition: color 0.3s;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
-nav a.active,
-nav a:hover { color: var(--brand-gold); }
 
-.lang-switch {
-  background: none;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 6px 12px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  transition: background 0.3s ease, color 0.3s ease;
+nav ul li a:hover {
+  color: #00ffcc;
 }
-.lang-switch:hover {
-  background: var(--brand-gold);
+
+.lang-switch button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #00ffcc;
+  padding: 5px 10px;
+  margin-left: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.lang-switch button:hover {
+  background: #00ffcc;
   color: #000;
 }
 
-/* ===========================
-   Section Base
-=========================== */
-section {
-  min-height: 100vh;  /* allow to grow if content taller */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 80px 20px 100px; /* top room for fixed header */
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-section h2 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-section p {
-  font-size: 1.2rem;
-  color: var(--brand-gold);
-  margin-bottom: 20px;
-  max-width: 800px;
+/* Sections */
+.section {
+  display: none;
+  padding: 100px 20px 50px;
+  min-height: 100vh;
 }
 
-/* ===========================
-   Home Section (Logo Center)
-=========================== */
-#home {
-  background: var(--brand-bg-dark);
-}
-.logo-animated {
-  width: 160px;
-  max-width: 200px;
-  margin-bottom: 20px;
-  animation: galaxyPulse 6s infinite linear;
-  will-change: transform, filter;
-}
-@keyframes galaxyPulse {
-  0%   { transform: scale(1)   rotate(0deg);   opacity:1; }
-  50%  { transform: scale(1.05) rotate(5deg);  opacity:0.95; }
-  100% { transform: scale(1)   rotate(0deg);   opacity:1; }
+.section.active {
+  display: block;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Glow state added by JS on hover/focus */
-.logo-animated.glow {
-  filter: drop-shadow(0 0 8px var(--brand-gold))
-          drop-shadow(0 0 16px var(--brand-gold));
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin-bottom: 20px;
 }
 
 .bio {
-  max-width: 800px;
-  color: #fff;
-  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
   line-height: 1.6;
-  margin-top: 15px;
+  color: #aaa;
+  font-size: 1.1rem;
 }
 
-/* ===========================
-   Music Section
-=========================== */
-#music {
-  background: var(--brand-bg-mid);
+/* Hero Logo Animation */
+.hero-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
 }
-#music h2 { font-size: 2.2rem; }
-#music p  { font-size: 1.1rem; margin-bottom: 30px; }
 
-.stores {
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Stores & Social Logos */
+.store-logos, .social-logos {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top: 20px;
   flex-wrap: wrap;
 }
-.store-link {
-  display: flex;
-  align-items: center;
-  background: var(--brand-bg-soft);
-  padding: 12px 18px;
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
-}
-.store-link img {
-  width: 28px;
-  height: 28px;
-  margin-right: 10px;
-  filter: brightness(0) invert(1); /* white default */
-  transition: all 0.3s ease-in-out;
-}
-.store-link:hover {
-  background: #333;
-  transform: scale(1.05);
-}
-/* Glow + color on hover */
-.store-link.airbit:hover img    { filter: none; box-shadow: 0 0 15px var(--airbit-orange); }
-.store-link.soundee:hover img   { filter: none; box-shadow: 0 0 15px var(--soundee-coral); }
-.store-link.traktrain:hover img { filter: none; box-shadow: 0 0 15px var(--traktrain-violet); }
 
-/* ===========================
-   Contact Section
-=========================== */
-#contact {
-  background: var(--brand-bg-dark);
-}
-#contact h2 { font-size: 2.2rem; }
-#contact p  { font-size: 1.1rem; margin-bottom: 30px; }
-
-.socials {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.socials a img {
-  width: 40px;
-  height: 40px;
-  filter: brightness(0) invert(1); /* white default */
-  transition: all 0.3s ease-in-out;
-}
-.socials a:hover img {
-  transform: scale(1.15);
-  filter: none;
-}
-/* Brand glows */
-.socials a.tiktok:hover img  { box-shadow: 0 0 15px var(--tiktok-teal), 0 0 25px var(--tiktok-pink); }
-.socials a.x:hover img       { box-shadow: 0 0 15px var(--x-white); }
-.socials a.youtube:hover img { box-shadow: 0 0 15px var(--youtube-red); }
-
-/* ===========================
-   Footer
-=========================== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: var(--brand-bg-mid);
-  font-size: 0.9rem;
-  color: #888;
+.store-logos img, .social-logos img {
+  width: 50px;
+  transition: transform 0.3s ease;
 }
 
-/* ===========================
-   Responsive
-=========================== */
+.store-logos img:hover, .social-logos img:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  section h2 { font-size: 2.2rem; }
-  section p  { font-size: 1rem; }
-  .logo-animated { width: 140px; }
-  nav a { font-size: 0.95rem; margin: 0 6px; }
-}
-
-@media (max-width: 480px) {
-  section { padding: 100px 20px 120px; }
-  section h2 { font-size: 1.9rem; }
-  .stores { gap: 12px; }
-  .store-link { padding: 10px 14px; font-size: 0.95rem; }
-  .store-link img { width: 24px; height: 24px; }
-  .socials { gap: 16px; }
-  .socials a img { width: 32px; height: 32px; }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .tagline {
+    font-size: 1rem;
+  }
 }
