@@ -1,71 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome To My Galaxy</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To My Galaxy | G8raldo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Animation de fond -->
-  <script src="bg-animation.js" defer></script>
+    <canvas id="bg-animation"></canvas>
 
-  <!-- HEADER -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-left">
-        <img src="assets/logos/logo.png" alt="Logo Géraldo" class="logo-small">
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#music">Music</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="theme-switch">
-        <label>
-          <input type="checkbox" id="theme-toggle">
-          <span class="slider"></span>
-        </label>
-      </div>
-    </nav>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/logos/logo.png" alt="Logo G8raldo" class="logo">
+        <h1>Welcome To My Galaxy</h1>
+        <p>The Universe Of Unique Vibes</p>
+        <p class="intro">Géraldo is a Mauritian singer, songwriter and music producer. Visionary, 
+        Géraldo has been a creative force in the music industry and beyond for more than a decade. 
+        His music is described as the perfect marriage between art, movement, mood, science and technology.</p>
+    </section>
 
-  <!-- SECTION HERO -->
-  <section id="home" class="hero">
-    <img src="assets/logos/logo.png" alt="Logo Géraldo" class="logo-big">
-    <h1>Welcome To My Galaxy</h1>
-    <h2>The Universe Of Unique Vibes</h2>
-    <p class="bio">
-      Géraldo is a Mauritian singer, songwriter and music producer.<br>
-      Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade. His music is described as the perfect marriage between art, movement, mood, science and technology.
-    </p>
-  </section>
+    <!-- Stay Connected -->
+    <section class="social-section">
+        <h2>Stay Connected</h2>
+        <div class="social-icons">
+            <a href="https://youtube.com" target="_blank"><img src="assets/logos/socials/youtube-white-512.png" alt="YouTube"></a>
+            <a href="https://tiktok.com" target="_blank"><img src="assets/logos/socials/tiktok-white-512.png" alt="TikTok"></a>
+            <a href="https://x.com" target="_blank"><img src="assets/logos/socials/x-white-512.png" alt="X"></a>
+        </div>
+        <div class="store-links">
+            <a href="https://airbit.com" target="_blank" class="btn">Airbit</a>
+            <a href="https://soundee.com" target="_blank" class="btn">Soundee</a>
+            <a href="https://traktrain.com" target="_blank" class="btn">Traktrain</a>
+        </div>
+    </section>
 
-  <!-- SECTION MUSIC -->
-  <section id="music" class="music-section">
-    <h2>Find My Music</h2>
-    <div class="store-links">
-      <a href="#"><img src="assets/logos/stores/airbit-512.png" alt="Airbit"></a>
-      <a href="#"><img src="assets/logos/stores/soundee-512.png" alt="Soundee"></a>
-      <a href="#"><img src="assets/logos/stores/traktrain-512.png" alt="Traktrain"></a>
-    </div>
-  </section>
+    <footer>
+        <p>© 2025 G8raldo. All rights reserved.</p>
+    </footer>
 
-  <!-- SECTION CONTACT -->
-  <section id="contact" class="contact-section">
-    <h2>Stay Connected</h2>
-    <div class="social-links">
-      <a href="#"><img src="assets/logos/socials/youtube-512.png" alt="YouTube"></a>
-      <a href="#"><img src="assets/logos/socials/tiktok-512.png" alt="TikTok"></a>
-      <a href="#"><img src="assets/logos/socials/x-512.png" alt="Twitter"></a>
-    </div>
-    <p>Email: <a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Géraldo. All rights reserved.</p>
-  </footer>
+    <script src="bg-animation.js"></script>
 </body>
 </html>
