@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Géraldo | Contact</title>
+  <!-- Lien vers le style global du site -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header>
+  <a href="index.html"><img src="assets/logo.png" alt="Logo Géraldo" class="logo"></a>
+  <nav>
+    <ul>
+      <li><a href="index.html"><span class="fr">Accueil</span><span class="en">Home</span></a></li>
+      <li><a href="music.html"><span class="fr">Musique</span><span class="en">Music</span></a></li>
+      <li><a href="contact.html"><span class="fr">Contact</span><span class="en">Contact</span></a></li>
+    </ul>
+  </nav>
+  <button class="lang-switch" onclick="switchLang()">EN</button>
+</header>
+
+<main>
+  <section class="contact-section">
+    <h1 class="contact-title fr">Contact</h1>
+    <h1 class="contact-title en">Contact</h1>
+
+    <p class="contact-subtitle fr">Laisse-moi un message via le formulaire ci-dessous :</p>
+    <p class="contact-subtitle en">Send me a message using the form below:</p>
+
+    <form action="https://formspree.io/f/movlvnez" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Nom / Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+
+      <select name="subject" required>
+        <option value="" disabled selected>Choisissez un sujet / Select subject</option>
+        <option value="collaboration">Collaboration</option>
+        <option value="beat-purchase">Achat de beats / Beat Purchase</option>
+        <option value="licensing">Licence / Licensing</option>
+        <option value="autre">Autre / Other</option>
+      </select>
+
+      <textarea name="message" placeholder="Votre message... / Your message..." required></textarea>
+      <button type="submit" class="btn-submit">ENVOYER</button>
+    </form>
+
+    <div class="social-section">
+      <h3 class="social-title fr">Retrouve-moi aussi sur :</h3>
+      <h3 class="social-title en">Find me also on:</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/g8raldo/" target="_blank" rel="noopener">
+          <img src="assets/icons/facebook.svg" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://www.tiktok.com/@g8raldo/" target="_blank" rel="noopener">
+          <img src="assets/icons/tiktok.svg" alt="TikTok" class="social-icon">
+        </a>
+        <a href="https://www.x.com/g8raldo/" target="_blank" rel="noopener">
+          <img src="assets/icons/twitter.svg" alt="X (Twitter)" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/@g8raldo/" target="_blank" rel="noopener">
+          <img src="assets/icons/youtube.svg" alt="YouTube" class="social-icon">
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Géraldo. Tous droits réservés.</p>
+</footer>
+</body>
+</html>
