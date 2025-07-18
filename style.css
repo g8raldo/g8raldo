@@ -1,69 +1,26 @@
-/* =====================
-   BEAT STORE BUTTONS
-===================== */
-.store-buttons-section {
-  text-align: center;
-  margin: 3rem auto;
-  padding: 0 1rem;
-}
-
-.store-buttons-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Container des boutons */
-.store-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Boutons dégradés */
-.store-buttons .btn-gradient {
-  display: inline-block;
-  padding: 1.1rem 3rem;
-  min-width: 200px;
-  font-size: 1.35rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #fff;
-  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: center;
-}
-
-.store-buttons .btn-gradient .fr,
-.store-buttons .btn-gradient .en {
-  width: 100%;
-  display: block;
-}
-
-/* Hover */
-.store-buttons .btn-gradient:hover,
-.store-buttons .btn-gradient:focus {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 10px rgba(255, 140, 0, 0.8);
-}
-
-/* Responsive mobile */
-@media (max-width: 480px) {
-  .store-buttons {
-    flex-direction: column;
-    gap: 1rem;
+(function(){
+  let currentLang = 'fr'; // default FR
+  function applyLang(){
+    const frEls = document.querySelectorAll('.fr');
+    const enEls = document.querySelectorAll('.en');
+    const btn = document.querySelector('.lang-switch');
+    if (btn){
+      if (currentLang === 'en'){
+        frEls.forEach(el=>el.style.display='none');
+        enEls.forEach(el=>el.style.display='block');
+        btn.textContent='FR';
+        document.documentElement.lang='en';
+      } else {
+        frEls.forEach(el=>el.style.display='block');
+        enEls.forEach(el=>el.style.display='none');
+        btn.textContent='EN';
+        document.documentElement.lang='fr';
+      }
+    }
   }
-  .store-buttons .btn-gradient {
-    width: 100%;
-    font-size: 1.2rem;
-    padding: 1rem 0;
-  }
-}
+  window.switchLang = function(){
+    currentLang = (currentLang === 'fr') ? 'en' : 'fr';
+    applyLang();
+  };
+  document.addEventListener('DOMContentLoaded', applyLang);
+})();
