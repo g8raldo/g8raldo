@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Géraldo | Contact</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+    <img src="../assets/icons/logo.png" alt="Logo Géraldo" class="logo">
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="music.html">Musique</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <button class="lang-switch" onclick="switchLang()">EN</button>
+</header>
+
+<main class="contact">
+    <h1>Contact</h1>
+    <p>Laisse-moi un message via le formulaire ci-dessous :</p>
+    <form action="https://formspree.io/f/movlvnez" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select name="subject">
+            <option>Choisissez un sujet</option>
+            <option>Collaboration</option>
+            <option>Licence de beat</option>
+            <option>Autre</option>
+        </select>
+        <textarea name="message" placeholder="Votre message..." required></textarea>
+        <button type="submit">ENVOYER</button>
+    </form>
+
+    <div class="contact-socials">
+        <a href="https://www.facebook.com/g8raldo/" target="_blank"><img src="../assets/icons/facebook.png" alt="Facebook" class="contact-icon"></a>
+        <a href="https://www.tiktok.com/@g8raldo/" target="_blank"><img src="../assets/icons/tiktok.png" alt="TikTok" class="contact-icon"></a>
+        <a href="https://www.x.com/g8raldo/" target="_blank"><img src="../assets/icons/x.png" alt="X" class="contact-icon"></a>
+        <a href="https://www.youtube.com/@g8raldo/" target="_blank"><img src="../assets/icons/youtube.png" alt="YouTube" class="contact-icon"></a>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Géraldo. Tous droits réservés.</p>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>
