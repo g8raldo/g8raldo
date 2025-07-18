@@ -83,3 +83,97 @@
     transform: scale(1.2);
     opacity: 0.8;
 }
+/* === Contact Section Styles (add to style.css) === */
+.contact-section {
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+  background-color: #000;
+  min-height: 100vh;
+}
+
+.contact-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.contact-subtitle {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+  color: #000;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-submit {
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 6px;
+}
+
+.btn-submit:hover {
+  opacity: 0.8;
+}
+
+/* Réseaux sociaux */
+.social-section {
+  margin-top: 30px;
+}
+
+.social-title {
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
