@@ -1,35 +1,38 @@
-<section id="contact" class="contact-section">
-  <h1>Contact</h1>
-  <p>Laisse-moi un message via le formulaire ci-dessous :</p>
+<section class="contact-section">
+    <h1 class="contact-title">Contact</h1>
+    <p class="contact-subtitle">Laisse-moi un message via le formulaire ci-dessous :</p>
 
-  <form action="https://formspree.io/f/movlvnez" method="POST" class="contact-form">
-    <input type="text" name="name" placeholder="Nom" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <select name="subject" required>
-      <option value="">Choisissez un sujet</option>
-      <option value="Collaboration">Collaboration</option>
-      <option value="Beat Purchase">Achat de Beat</option>
-      <option value="Autre">Autre</option>
-    </select>
-    <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
-    <button type="submit" class="send-btn">ENVOYER</button>
-  </form>
+    <form action="https://formspree.io/f/movlvnez" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Email" required>
 
-  <div class="social-links">
-    <p>Retrouve-moi aussi sur :</p>
-    <div class="icons">
-      <a href="https://www.facebook.com/g8raldo/" target="_blank">
-        <img src="assets/icons/facebook.png" alt="Facebook">
-      </a>
-      <a href="https://www.tiktok.com/@g8raldo/" target="_blank">
-        <img src="assets/icons/tiktok.png" alt="TikTok">
-      </a>
-      <a href="https://www.x.com/g8raldo/" target="_blank">
-        <img src="assets/icons/twitter.png" alt="X">
-      </a>
-      <a href="https://www.youtube.com/@g8raldo/" target="_blank">
-        <img src="assets/icons/youtube.png" alt="YouTube">
-      </a>
+        <select name="subject" required>
+            <option value="" disabled selected>Choisissez un sujet</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="beat-purchase">Achat de beats</option>
+            <option value="licensing">Licences</option>
+            <option value="autre">Autre</option>
+        </select>
+
+        <textarea name="message" placeholder="Votre message..." required></textarea>
+        <button type="submit" class="btn-submit">ENVOYER</button>
+    </form>
+
+    <div class="social-section">
+        <h3 class="social-title">Retrouve-moi aussi sur :</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/g8raldo/" target="_blank">
+                <img src="assets/icons/facebook.svg" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.tiktok.com/@g8raldo/" target="_blank">
+                <img src="assets/icons/tiktok.svg" alt="TikTok" class="social-icon">
+            </a>
+            <a href="https://www.x.com/g8raldo/" target="_blank">
+                <img src="assets/icons/twitter.svg" alt="X (Twitter)" class="social-icon">
+            </a>
+            <a href="https://www.youtube.com/@g8raldo/" target="_blank">
+                <img src="assets/icons/youtube.svg" alt="YouTube" class="social-icon">
+            </a>
+        </div>
     </div>
-  </div>
 </section>
