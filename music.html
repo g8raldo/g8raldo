@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Géraldo | Musique</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgA3EwP4Y2bN6s5wY9ycYzaO+VxDRKCVh0b07XHtcwPa5wPLXnwI75Eetxj62LF8o5pP2vW7/dngw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header>
+  <a href="index.html"><img src="assets/logo.png" alt="Logo Géraldo" class="logo" /></a>
+  <nav>
+    <a href="index.html"><span class="fr">Accueil</span><span class="en">Home</span></a>
+    <a href="music.html"><span class="fr">Musique</span><span class="en">Music</span></a>
+    <a href="contact.html"><span class="fr">Contact</span><span class="en">Contact</span></a>
+  </nav>
+  <button class="lang-switch" onclick="switchLang()">EN</button>
+</header>
+
+<main>
+  <section id="music" class="music-section">
+    <h2 class="fr">Musique</h2>
+    <h2 class="en">Music</h2>
+
+    <div class="youtube-player">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=PLRKSX9hr2j9OPRhFrNb5PEmvt0cP-Y-l9"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="store-buttons">
+      <a href="https://www.airbit.com/g8raldo" class="btn-gradient" target="_blank" rel="noopener">Airbit</a>
+      <a href="https://www.soundee.com/g8raldo" class="btn-gradient" target="_blank" rel="noopener">Soundee</a>
+      <a href="https://www.traktrain.com/g8raldo" class="btn-gradient" target="_blank" rel="noopener">Traktrain</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="https://www.youtube.com/@g8raldo" target="_blank" class="yt-footer" aria-label="YouTube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+  <p>© 2025 Géraldo. Tous droits réservés.</p>
+</footer>
+</body>
+</html>
