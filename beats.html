@@ -1,45 +1,167 @@
-<form id="purchase-form">
-  <label for="buyer-email">Ton email :</label>
-  <input type="email" id="buyer-email" name="buyerEmail" placeholder="exemple@mail.com" required />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beats à vendre – Géraldo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.paypal.com/sdk/js?client-id=BAA836UUwMD9UqkAPjf4NRjybDVRxRMTMEJhf1feKplolDPoNzEWj6EbBoZ2CBlBhDSkNyWiu7NJQH_Ci0&currency=EUR"></script>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Géraldo Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="beats.html" class="active">Beats</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="lang-switch" onclick="switchLang()">FR</button>
+  </header>
 
-  <label for="beat-select">Choisis un beat :</label>
-  <select id="beat-select" name="beat">
-    <option value="Eva Know">Eva Know</option>
-    <option value="Zone">Zone</option>
-    <option value="Orion">Orion</option>
-    <option value="Trapical Storm">Trapical Storm</option>
-    <option value="Velvet Grip">Velvet Grip</option>
-    <option value="Whisperwave">Whisperwave</option>
-    <option value="I'll Be There">I'll Be There</option>
-    <option value="Passion">Passion</option>
-    <option value="Tired">Tired</option>
-  </select>
+  <section class="home-section">
+    <!-- Pas de titre général comme demandé -->
 
-  <label for="license-select">Choisis la licence :</label>
-  <select id="license-select" name="license" onchange="updateAmount()">
-    <option value="Non-Exclusive">Non-Exclusive (40 €)</option>
-    <option value="Exclusive">Exclusive (100 €)</option>
-  </select>
+    <form id="purchase-form" style="max-width: 480px; margin: auto; text-align: left;">
+      <label for="buyer-email">Ton email :</label><br />
+      <input
+        type="email"
+        id="buyer-email"
+        name="buyerEmail"
+        placeholder="exemple@mail.com"
+        required
+        style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: none;"
+      />
 
-  <p>Montant à payer : <span id="amount-display">40</span> €</p>
+      <label for="beat-select">Choisis un beat :</label><br />
+      <select
+        id="beat-select"
+        name="beat"
+        required
+        style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: none;"
+      >
+        <option value="" disabled selected>-- Sélectionne un beat --</option>
+        <option value="Eva Know">Eva Know</option>
+        <option value="Zone">Zone</option>
+        <option value="Orion">Orion</option>
+        <option value="Trapical Storm">Trapical Storm</option>
+        <option value="Velvet Grip">Velvet Grip</option>
+        <option value="Whisperwave">Whisperwave</option>
+        <option value="I'll Be There">I'll Be There</option>
+        <option value="Passion">Passion</option>
+        <option value="Tired">Tired</option>
+      </select>
 
-  <button type="submit" class="btn-submit">Acheter</button>
-</form>
+      <label for="license-select">Choisis la licence :</label><br />
+      <select
+        id="license-select"
+        name="license"
+        onchange="updateAmount()"
+        required
+        style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: none;"
+      >
+        <option value="Non-Exclusive" selected>Non-Exclusive (40 €)</option>
+        <option value="Exclusive">Exclusive (100 €)</option>
+      </select>
 
-<div id="paypal-button-container"></div>
+      <p>
+        Montant à payer : <strong><span id="amount-display">40</span> €</strong>
+      </p>
 
-<script>
-  function clearPaypalButtons() {
-    document.getElementById('paypal-button-container').innerHTML = '';
-  }
+      <button
+        type="submit"
+        class="btn-submit"
+        style="width: 100%;"
+      >
+        Acheter
+      </button>
+    </form>
 
-  function updateAmount() {
-    const license = document.getElementById('license-select').value;
-    const amount = license === 'Exclusive' ? 100 : 40;
-    document.getElementById('amount-display').textContent = amount;
-    clearPaypalButtons();
-  }
-  updateAmount();
+    <div id="paypal-button-container" style="max-width: 480px; margin: 30px auto 0;"></div>
+  </section>
 
-  // Le code JS pour gérer la soumission du formulaire est comme montré plus haut
-</script>
+  <footer>
+    <p>© Géraldo – Tous droits réservés</p>
+  </footer>
+
+  <script>
+    // Fonction switch langue simple (tu peux intégrer ton script complet si besoin)
+    function switchLang() {
+      alert('Fonction switchLang à intégrer selon ton script existant.');
+    }
+
+    function clearPaypalButtons() {
+      document.getElementById('paypal-button-container').innerHTML = '';
+    }
+
+    function updateAmount() {
+      const license = document.getElementById('license-select').value;
+      const amount = license === 'Exclusive' ? 100 : 40;
+      document.getElementById('amount-display').textContent = amount;
+      clearPaypalButtons();
+    }
+
+    updateAmount();
+
+    // Gestion formulaire & bouton PayPal dynamique
+    document.getElementById('purchase-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const emailInput = document.getElementById('buyer-email');
+      const beatSelect = document.getElementById('beat-select');
+      const licenseSelect = document.getElementById('license-select');
+      const amountDisplay = document.getElementById('amount-display');
+
+      if (!emailInput.checkValidity()) {
+        alert('Merci de saisir un email valide.');
+        emailInput.focus();
+        return;
+      }
+
+      if (!beatSelect.value) {
+        alert('Merci de choisir un beat.');
+        beatSelect.focus();
+        return;
+      }
+
+      if (!licenseSelect.value) {
+        alert('Merci de choisir une licence.');
+        licenseSelect.focus();
+        return;
+      }
+
+      const email = emailInput.value;
+      const beat = beatSelect.value;
+      const license = licenseSelect.value;
+      const amount = parseFloat(amountDisplay.textContent);
+
+      clearPaypalButtons();
+
+      paypal.Buttons({
+        style: { layout: 'vertical', color: 'gold', shape: 'rect', label: 'paypal' },
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: { value: amount.toFixed(2) },
+              description: `Beat: ${beat} | Licence: ${license} | Email: ${email}`
+            }]
+          });
+        },
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            alert(`Merci ${details.payer.name.given_name} pour ton achat !\nUn email de confirmation a été envoyé.`);
+            document.getElementById('purchase-form').reset();
+            clearPaypalButtons();
+          });
+        },
+        onError: function (err) {
+          console.error(err);
+          alert('Une erreur est survenue lors du paiement.');
+        }
+      }).render('#paypal-button-container');
+    });
+  </script>
+</body>
+</html>
