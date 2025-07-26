@@ -7,35 +7,56 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- HEADER -->
   <header>
+    <img src="images/logo.png" alt="Géraldo Logo" class="logo" />
     <nav>
-      <a href="index.html">Accueil</a>
-      <a href="music.html">Music</a>
-      <a href="beats.html" class="active">Beats</a>
-      <a href="contact.html">Contact</a>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="beats.html" class="active">Beats</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
+    <button class="lang-switch">FR</button>
   </header>
 
-  <!-- SECTION BEATS ICI -->
-  <main>
-    <section id="beats" class="beat-section">
-      <h1>🎧 Beats à vendre</h1>
+  <!-- MAIN BEAT SECTION -->
+  <section class="home-section">
+    <h1 class="tagline">🎧 Beats à vendre</h1>
+    <p class="bio">Écoute, choisis et contacte-moi directement pour acheter le beat de ton choix.</p>
 
-      <!-- Beat 1 -->
-      <div class="beat-box">
-        <h2>Velvet Grip – Afro RnB</h2>
-        <audio controls>
-          <source src="https://tonlien.com/velvetgrip.mp3" type="audio/mpeg">
-        </audio>
-        <p>💽 MP3 + WAV + Licence<br>💰 À partir de 49€</p>
-        <a href="mailto:contact@g8raldo.com?subject=Achat%20Beat%20Velvet%20Grip" class="buy-button">Acheter ce beat</a>
-      </div>
+    <!-- BEAT 1 -->
+    <div class="beat-box" style="margin-top: 40px;">
+      <h2 style="color: #ff1e8a;">Velvet Grip – Afro RnB</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://tonlien.com/velvetgrip.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas la lecture audio.
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard<br>💰 À partir de 49€</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Velvet%20Grip">Acheter ce beat</a>
+    </div>
 
-      <!-- Ajoute d’autres beats ici... -->
+    <!-- BEAT 2 -->
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Trapical Storm – Trap x Reggae x Seggae</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://tonlien.com/trapicalstorm.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas la lecture audio.
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard<br>💰 À partir de 59€</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Trapical%20Storm">Acheter ce beat</a>
+    </div>
 
-    </section>
-  </main>
+    <!-- AJOUTE D’AUTRES BEATS ICI... -->
 
+    <div style="margin-top: 60px;">
+      <p>Pour toute demande spéciale ou licence exclusive,<br>écris-moi directement :</p>
+      <a href="mailto:contact@g8raldo.com" class="btn-gradient">📩 contact@g8raldo.com</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <p>© Géraldo – Tous droits réservés</p>
   </footer>
