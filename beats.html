@@ -4,89 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beats à vendre – Géraldo</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- HEADER -->
   <header>
-    <a href="index.html"><img src="assets/logo.png" alt="Géraldo Logo" class="logo" /></a>
+    <img src="images/logo.png" alt="Géraldo Logo" class="logo" />
     <nav>
       <ul>
-        <li><a href="index.html"><span class="fr">Accueil</span><span class="en">Home</span></a></li>
-        <li><a href="music.html"><span class="fr">Musique</span><span class="en">Music</span></a></li>
-        <li><a href="beats.html" class="active"><span class="fr">Beats</span><span class="en">Beats</span></a></li>
-        <li><a href="contact.html"><span class="fr">Contact</span><span class="en">Contact</span></a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="beats.html" class="active">Beats</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <button class="lang-switch" onclick="switchLang()">EN</button>
+    <button class="lang-switch">FR</button>
   </header>
 
-  <!-- MAIN BEAT SECTION -->
-  <main>
-    <section class="home-section">
-      <h1 class="tagline">
-        <span class="fr">🎧 Beats à vendre</span>
-        <span class="en">🎧 Beats for Sale</span>
-      </h1>
-      <p class="bio">
-        <span class="fr">Écoute, choisis et contacte-moi directement pour acheter le beat de ton choix.</span>
-        <span class="en">Listen, choose, and contact me directly to buy the beat you want.</span>
-      </p>
+  <!-- MAIN SECTION -->
+  <section class="home-section">
+    <h1 class="tagline">🎧 Beats à vendre</h1>
+    <p class="bio">Écoute et choisis le beat qui t’inspire. Commande directe par email.</p>
 
-      <!-- BEAT 1 -->
-      <div class="beat-box" style="margin-top: 40px;">
-        <h2 style="color: #ff1e8a;">
-          <span class="fr">Velvet Grip – Afro RnB</span>
-          <span class="en">Velvet Grip – Afro RnB</span>
-        </h2>
-        <audio controls style="width: 100%; max-width: 600px;">
-          <source src="https://tonlien.com/velvetgrip.mp3" type="audio/mpeg">
-          <span class="fr">Ton navigateur ne supporte pas la lecture audio.</span>
-          <span class="en">Your browser does not support the audio element.</span>
-        </audio>
-        <p style="margin: 15px 0;">
-          <span class="fr">💽 MP3 + WAV + Licence standard<br>💰 À partir de 49€</span>
-          <span class="en">💽 MP3 + WAV + Standard License<br>💰 Starting at 49€</span>
-        </p>
-        <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Velvet%20Grip">
-          <span class="fr">Acheter ce beat</span>
-          <span class="en">Buy this beat</span>
-        </a>
-      </div>
+    <!-- TEMPLATE BEAT -->
+    <div class="beat-box" style="margin-top: 40px;">
+      <h2 style="color: #ff1e8a;">Eva Know – Afrobeat</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=1x1GW9E7cKhcpyt6ONahDU_D_gJTIRYiO" type="audio/mpeg">
+        Ton navigateur ne supporte pas la lecture audio.
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Eva%20Know%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Eva%20Know%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
 
-      <!-- BEAT 2 -->
-      <div class="beat-box" style="margin-top: 60px;">
-        <h2 style="color: #ff1e8a;">
-          <span class="fr">Trapical Storm – Trap x Reggae x Seggae</span>
-          <span class="en">Trapical Storm – Trap x Reggae x Seggae</span>
-        </h2>
-        <audio controls style="width: 100%; max-width: 600px;">
-          <source src="https://tonlien.com/trapicalstorm.mp3" type="audio/mpeg">
-          <span class="fr">Ton navigateur ne supporte pas la lecture audio.</span>
-          <span class="en">Your browser does not support the audio element.</span>
-        </audio>
-        <p style="margin: 15px 0;">
-          <span class="fr">💽 MP3 + WAV + Licence standard<br>💰 À partir de 59€</span>
-          <span class="en">💽 MP3 + WAV + Standard License<br>💰 Starting at 59€</span>
-        </p>
-        <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Trapical%20Storm">
-          <span class="fr">Acheter ce beat</span>
-          <span class="en">Buy this beat</span>
-        </a>
-      </div>
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Zone – Afrotrap</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=1PeOdDYAfjKwL84NllQpBVd36cG8HPzUr" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Zone%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Zone%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
 
-      <!-- AJOUTE D’AUTRES BEATS ICI... -->
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Orion – Trap Soul</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=10vLL2k-UH7iF0nKSf5tBKLSh8kXZzI64" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Orion%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Orion%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
 
-      <div style="margin-top: 60px;">
-        <p>
-          <span class="fr">Pour toute demande spéciale ou licence exclusive,<br>écris-moi directement :</span>
-          <span class="en">For special requests or exclusive licenses,<br>contact me directly:</span>
-        </p>
-        <a href="mailto:contact@g8raldo.com" class="btn-gradient">📩 contact@g8raldo.com</a>
-      </div>
-    </section>
-  </main>
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Trapical Storm – Trap x Reggae x Seggae</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=1Mcz4tcEDoC-aZfcjuaTBFXKzviiWNLFy" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Trapical%20Storm%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Trapical%20Storm%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
+
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Velvet Grip – Afro RnB</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=15uUstwMDK6LfP8TrkvxSGVikGEUzfcLf" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Velvet%20Grip%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Velvet%20Grip%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
+
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Whisperwave – Lofi Chill</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=1QLzDRziUO9bL1Ixzn9ihQ6bxBj_BUgYj" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Whisperwave%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Whisperwave%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
+
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">I'll Be There – Afro Pop</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=1d6xn5qAwtQ43m1CSUn9iYqlWQT67yPCP" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20I%27ll%20Be%20There%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20I%27ll%20Be%20There%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
+
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Passion – Afro Love</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=1SiDcJw15vZGD44TXYwyqc7_87TFSEhV8" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Passion%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Passion%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
+
+    <div class="beat-box" style="margin-top: 60px;">
+      <h2 style="color: #ff1e8a;">Tired – Emotional Trap</h2>
+      <audio controls style="width: 100%; max-width: 600px;">
+        <source src="https://drive.google.com/uc?export=download&id=1HeWDDFwvEkEcPgoEk6ncmJ_ZatX-XT99" type="audio/mpeg">
+      </audio>
+      <p style="margin: 15px 0;">💽 MP3 + WAV + Licence standard</p>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Tired%20(NON-EXCLUSIVE)">Non-Exclusive – 40 €</a>
+      <a class="btn-gradient" href="mailto:contact@g8raldo.com?subject=Achat%20du%20beat%20Tired%20(EXCLUSIVE)">Exclusive – 100 €</a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
