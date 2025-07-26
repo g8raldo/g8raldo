@@ -1,12 +1,11 @@
 (function(){
-  let currentLang = 'fr'; // default FR
+  let currentLang = 'fr'; // langue par défaut
 
   function applyLang(){
     const frEls = document.querySelectorAll('.fr');
     const enEls = document.querySelectorAll('.en');
     const btn   = document.querySelector('.lang-switch');
 
-    // Show/hide based on currentLang
     if (currentLang === 'en'){
       frEls.forEach(el => el.style.display = 'none');
       enEls.forEach(el => el.style.display = 'block');
