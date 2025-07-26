@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beats à vendre – Géraldo</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script> <!-- Ton JS pour switch langue -->
+  <title>Beats Store - Géraldo</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Remplace "ton-style.css" par le nom de ton fichier CSS si différent -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAA836UUwMD9UqkAPjf4NRjybDVRxRMTMEJhf1feKplolDPoNzEWj6EbBoZ2CBlBhDSkNyWiu7NJQH_Ci0&currency=EUR"
+    data-sdk-integration-source="button-factory">
+  </script>
 </head>
 <body>
+
   <header>
-    <img src="images/logo.png" alt="Géraldo Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="music.html">Music</a></li>
-        <li><a href="beats.html" class="active">Beats</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <button class="lang-switch" onclick="switchLang()">FR</button>
+    <div class="logo">
+      <!-- Logo ici si tu veux -->
+      <h1 style="color:#ff1e8a;">Géraldo Beats Store</h1>
+    </div>
   </header>
 
-  <main class="home-section">
-    <h1 class="tagline fr">🎧 Beats à vendre</h1>
-    <h1 class="tagline en">🎧 Beats for Sale</h1>
-    <p class="bio fr">Choisissez un beat, sélectionnez une licence puis cliquez sur Acheter.</p>
-    <p class="bio en">Choose a beat, select a license, then click Buy.</p>
+  <main class="contact-section">
+
+    <h2 class="contact-title">Acheter un Beat</h2>
+    <p class="contact-subtitle">Choisis ton beat et ta licence, puis clique sur Acheter</p>
 
     <form id="purchase-form" class="contact-form">
-      <label for="beat-select" class="fr">Sélectionnez un beat :</label>
-      <label for="beat-select" class="en" style="display:none;">Select a beat:</label>
+
+      <label for="beat-select" style="text-align:left; max-width:500px; margin: 0 auto 10px auto; display:block;">
+        Sélectionne un beat :
+      </label>
       <select id="beat-select" name="beat" required>
-        <option value="" disabled selected>-- Choisir un beat --</option>
+        <option value="" disabled selected>-- Choisis un beat --</option>
         <option value="Eva Know">Eva Know</option>
         <option value="Zone">Zone</option>
         <option value="Orion">Orion</option>
@@ -43,51 +43,96 @@
         <option value="Tired">Tired</option>
       </select>
 
-      <label for="license-select" class="fr" style="margin-top:1rem;">Choisissez la licence :</label>
-      <label for="license-select" class="en" style="display:none; margin-top:1rem;">Select license:</label>
+      <label for="license-select" style="text-align:left; max-width:500px; margin: 20px auto 10px auto; display:block;">
+        Choisis ta licence :
+      </label>
       <select id="license-select" name="license" required>
-        <option value="" disabled selected>-- Choisir une licence --</option>
-        <option value="Non-Exclusive - 40€">Non-Exclusive - 40€</option>
-        <option value="Exclusive - 100€">Exclusive - 100€</option>
+        <option value="" disabled selected>-- Choisis une licence --</option>
+        <option value="non-exclusive" data-price="40">Non-Exclusive – 40 €</option>
+        <option value="exclusive" data-price="100">Exclusive – 100 €</option>
       </select>
 
-      <button type="submit" class="btn-submit" style="margin-top:1.5rem;">Acheter</button>
+      <button type="submit" class="btn-submit" style="max-width:500px; margin: 30px auto 0 auto;">
+        Acheter
+      </button>
     </form>
+
+    <div id="paypal-button-container" style="margin-top: 40px;"></div>
+
   </main>
 
   <footer>
-    <p>© Géraldo – Tous droits réservés</p>
+    <p style="color:#888;">© 2025 Géraldo. Tous droits réservés.</p>
   </footer>
 
   <script>
-    // Switch langue simple
-    (function(){
-      let currentLang = 'fr';
-      function applyLang(){
-        document.querySelectorAll('.fr').forEach(el => el.style.display = currentLang === 'fr' ? 'block' : 'none');
-        document.querySelectorAll('.en').forEach(el => el.style.display = currentLang === 'en' ? 'block' : 'none');
-        document.querySelector('.lang-switch').textContent = currentLang === 'fr' ? 'EN' : 'FR';
-        document.documentElement.lang = currentLang;
+    const form = document.getElementById('purchase-form');
+    const paypalContainer = document.getElementById('paypal-button-container');
+
+    // Reset PayPal buttons container
+    function clearPaypalButtons() {
+      paypalContainer.innerHTML = '';
+    }
+
+    // Récupère la licence choisie et son prix
+    function getSelectedPrice() {
+      const licenseSelect = document.getElementById('license-select');
+      const selectedOption = licenseSelect.options[licenseSelect.selectedIndex];
+      return selectedOption ? parseFloat(selectedOption.getAttribute('data-price')) : 0;
+    }
+
+    // Affiche le bouton PayPal avec le montant sélectionné
+    function renderPaypalButton(amount) {
+      clearPaypalButtons();
+      paypal.Buttons({
+        style: {
+          layout: 'vertical',
+          color: 'gold',
+          shape: 'rect',
+          label: 'paypal'
+        },
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: amount.toFixed(2)
+              },
+              description: `Achat beat - Licence ${document.getElementById('license-select').value}`
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert(`Merci ${details.payer.name.given_name} pour ton achat !`);
+            form.reset();
+            clearPaypalButtons();
+          });
+        },
+        onCancel: function() {
+          alert('Paiement annulé.');
+        },
+        onError: function(err) {
+          alert('Une erreur est survenue lors du paiement.');
+          console.error(err);
+        }
+      }).render('#paypal-button-container');
+    }
+
+    // Quand l'utilisateur soumet le formulaire
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const beat = form.beat.value;
+      const license = form.license.value;
+      if (!beat || !license) {
+        alert('Merci de sélectionner un beat et une licence.');
+        return;
       }
-      window.switchLang = function(){
-        currentLang = currentLang === 'fr' ? 'en' : 'fr';
-        applyLang();
-      };
-      document.addEventListener('DOMContentLoaded', applyLang);
-    })();
-
-    // Formulaire : ouvrir mailto avec sujet + message dynamiques
-    document.getElementById('purchase-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const beat = document.getElementById('beat-select').value;
-      const license = document.getElementById('license-select').value;
-      if(!beat || !license) return alert('Veuillez sélectionner un beat et une licence.');
-
-      const subject = encodeURIComponent(`Achat du beat: ${beat}`);
-      const body = encodeURIComponent(`Bonjour,\n\nJe souhaite acheter le beat "${beat}" avec la licence "${license}".\nMerci de me contacter pour la suite.\n\nCordialement,\n`);
-
-      window.location.href = `mailto:contact@g8raldo.com?subject=${subject}&body=${body}`;
+      const price = getSelectedPrice();
+      renderPaypalButton(price);
+      // Scroll vers le bouton PayPal pour inciter à payer
+      paypalContainer.scrollIntoView({behavior: 'smooth'});
     });
   </script>
+
 </body>
 </html>
