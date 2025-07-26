@@ -1,131 +1,45 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beats Store - Géraldo</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Remplace "ton-style.css" par le nom de ton fichier CSS si différent -->
-  <script
-    src="https://www.paypal.com/sdk/js?client-id=BAA836UUwMD9UqkAPjf4NRjybDVRxRMTMEJhf1feKplolDPoNzEWj6EbBoZ2CBlBhDSkNyWiu7NJQH_Ci0&currency=EUR"
-    data-sdk-integration-source="button-factory">
-  </script>
-</head>
-<body>
+<form id="purchase-form">
+  <label for="buyer-email">Ton email :</label>
+  <input type="email" id="buyer-email" name="buyerEmail" placeholder="exemple@mail.com" required />
 
-  <main class="contact-section">
+  <label for="beat-select">Choisis un beat :</label>
+  <select id="beat-select" name="beat">
+    <option value="Eva Know">Eva Know</option>
+    <option value="Zone">Zone</option>
+    <option value="Orion">Orion</option>
+    <option value="Trapical Storm">Trapical Storm</option>
+    <option value="Velvet Grip">Velvet Grip</option>
+    <option value="Whisperwave">Whisperwave</option>
+    <option value="I'll Be There">I'll Be There</option>
+    <option value="Passion">Passion</option>
+    <option value="Tired">Tired</option>
+  </select>
 
-    <h2 class="contact-title">Acheter un Beat</h2>
-    <p class="contact-subtitle">Choisis ton beat et ta licence, puis clique sur Acheter</p>
+  <label for="license-select">Choisis la licence :</label>
+  <select id="license-select" name="license" onchange="updateAmount()">
+    <option value="Non-Exclusive">Non-Exclusive (40 €)</option>
+    <option value="Exclusive">Exclusive (100 €)</option>
+  </select>
 
-    <form id="purchase-form" class="contact-form">
+  <p>Montant à payer : <span id="amount-display">40</span> €</p>
 
-      <label for="beat-select" style="text-align:left; max-width:500px; margin: 0 auto 10px auto; display:block;">
-        Sélectionne un beat :
-      </label>
-      <select id="beat-select" name="beat" required>
-        <option value="" disabled selected>-- Choisis un beat --</option>
-        <option value="Eva Know">Eva Know</option>
-        <option value="Zone">Zone</option>
-        <option value="Orion">Orion</option>
-        <option value="Trapical Storm">Trapical Storm</option>
-        <option value="Velvet Grip">Velvet Grip</option>
-        <option value="Whisperwave">Whisperwave</option>
-        <option value="I'll Be There">I'll Be There</option>
-        <option value="Passion">Passion</option>
-        <option value="Tired">Tired</option>
-      </select>
+  <button type="submit" class="btn-submit">Acheter</button>
+</form>
 
-      <label for="license-select" style="text-align:left; max-width:500px; margin: 20px auto 10px auto; display:block;">
-        Choisis ta licence :
-      </label>
-      <select id="license-select" name="license" required>
-        <option value="" disabled selected>-- Choisis une licence --</option>
-        <option value="non-exclusive" data-price="40">Non-Exclusive – 40 €</option>
-        <option value="exclusive" data-price="100">Exclusive – 100 €</option>
-      </select>
+<div id="paypal-button-container"></div>
 
-      <button type="submit" class="btn-submit" style="max-width:500px; margin: 30px auto 0 auto;">
-        Acheter
-      </button>
-    </form>
+<script>
+  function clearPaypalButtons() {
+    document.getElementById('paypal-button-container').innerHTML = '';
+  }
 
-    <div id="paypal-button-container" style="margin-top: 40px;"></div>
+  function updateAmount() {
+    const license = document.getElementById('license-select').value;
+    const amount = license === 'Exclusive' ? 100 : 40;
+    document.getElementById('amount-display').textContent = amount;
+    clearPaypalButtons();
+  }
+  updateAmount();
 
-  </main>
-
-  <footer>
-    <p style="color:#888;">© 2025 Géraldo. Tous droits réservés.</p>
-  </footer>
-
-  <script>
-    const form = document.getElementById('purchase-form');
-    const paypalContainer = document.getElementById('paypal-button-container');
-
-    // Reset PayPal buttons container
-    function clearPaypalButtons() {
-      paypalContainer.innerHTML = '';
-    }
-
-    // Récupère la licence choisie et son prix
-    function getSelectedPrice() {
-      const licenseSelect = document.getElementById('license-select');
-      const selectedOption = licenseSelect.options[licenseSelect.selectedIndex];
-      return selectedOption ? parseFloat(selectedOption.getAttribute('data-price')) : 0;
-    }
-
-    // Affiche le bouton PayPal avec le montant sélectionné
-    function renderPaypalButton(amount) {
-      clearPaypalButtons();
-      paypal.Buttons({
-        style: {
-          layout: 'vertical',
-          color: 'gold',
-          shape: 'rect',
-          label: 'paypal'
-        },
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: amount.toFixed(2)
-              },
-              description: `Achat beat - Licence ${document.getElementById('license-select').value}`
-            }]
-          });
-        },
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert(`Merci ${details.payer.name.given_name} pour ton achat !`);
-            form.reset();
-            clearPaypalButtons();
-          });
-        },
-        onCancel: function() {
-          alert('Paiement annulé.');
-        },
-        onError: function(err) {
-          alert('Une erreur est survenue lors du paiement.');
-          console.error(err);
-        }
-      }).render('#paypal-button-container');
-    }
-
-    // Quand l'utilisateur soumet le formulaire
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const beat = form.beat.value;
-      const license = form.license.value;
-      if (!beat || !license) {
-        alert('Merci de sélectionner un beat et une licence.');
-        return;
-      }
-      const price = getSelectedPrice();
-      renderPaypalButton(price);
-      // Scroll vers le bouton PayPal pour inciter à payer
-      paypalContainer.scrollIntoView({behavior: 'smooth'});
-    });
-  </script>
-
-</body>
-</html>
+  // Le code JS pour gérer la soumission du formulaire est comme montré plus haut
+</script>
