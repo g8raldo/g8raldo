@@ -24,5 +24,10 @@
     applyLang();
   };
 
-  document.addEventListener('DOMContentLoaded', applyLang);
+  // Appelle applyLang **immédiatement** pour éviter que les deux langues apparaissent
+  if (document.readyState === "loading") {
+    document.addEventListener('DOMContentLoaded', applyLang);
+  } else {
+    applyLang();
+  }
 })();
