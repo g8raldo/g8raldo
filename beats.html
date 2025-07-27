@@ -2,130 +2,144 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beat Store Géraldo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beats – Géraldo</title>
   <style>
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
-      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
       margin: 0;
-      padding: 20px;
-      text-align: center;
+      font-size: 1.5rem;
     }
-    label, select, input {
-      display: block;
-      margin: 10px auto;
-      width: 300px;
-      max-width: 90%;
+
+    nav a {
+      color: #fff;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
     }
-    input, select {
-      padding: 8px;
-      border-radius: 6px;
+
+    nav a:hover {
+      color: #FFD140;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 1rem;
+      min-height: calc(100vh - 80px);
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    input, select, button {
+      padding: 0.8rem;
       border: none;
+      border-radius: 5px;
       font-size: 1rem;
     }
-    .paypal-form {
-      margin-top: 20px;
-      display: none;
-      justify-content: center;
+
+    input[type="email"] {
+      background-color: #222;
+      color: #fff;
+    }
+
+    select {
+      background-color: #222;
+      color: #fff;
+    }
+
+    button {
+      background-color: #FFD140;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #111;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h2>Acheter un beat - Géraldo</h2>
-  <form id="purchase-form">
-    <label for="buyer-email">Email :</label>
-    <input type="email" id="buyer-email" name="buyerEmail" placeholder="exemple@mail.com" required />
-    
-    <label for="beat-select">Beat :</label>
-    <select id="beat-select" name="beat" required>
-      <option value="" disabled selected>-- Choisir un beat --</option>
-      <option value="Eva Know">Eva Know</option>
-      <option value="Zone">Zone</option>
-      <option value="Orion">Orion</option>
-      <option value="Trapical Storm">Trapical Storm</option>
-      <option value="Velvet Grip">Velvet Grip</option>
-      <option value="Whisperwave">Whisperwave</option>
-      <option value="I'll Be There">I'll Be There</option>
-      <option value="Passion">Passion</option>
-      <option value="Tired">Tired</option>
-    </select>
 
-    <label for="license-select">Licence :</label>
-    <select id="license-select" name="license" required>
-      <option value="" disabled selected>-- Choisir une licence --</option>
-      <option value="Non-Exclusive">Non-Exclusive (40 €)</option>
-      <option value="Exclusive">Exclusive (100 €)</option>
-    </select>
-  </form>
+  <header>
+    <h1>Géraldo</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="music.html">Music</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Bouton Non-Exclusive -->
-  <form
-    action="https://www.paypal.com/ncp/payment/FLSLGVAAYHWEA"
-    method="post"
-    target="_blank"
-    class="paypal-form"
-    id="form-non-exclusive"
-  >
-    <input
-      type="submit"
-      value="Payer avec PayPal - Non-Exclusive"
-      class="pp-FLSLGVAAYHWEA"
-    />
-    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-    <section style="font-size: 0.75rem;">
-      Optimisé par
-      <img
-        src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-        alt="paypal"
-        style="height: 0.875rem; vertical-align: middle"
-      />
-    </section>
-  </form>
+  <div class="container">
+    <h2>Acheter un beat</h2>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" onsubmit="return handleSubmit()">
+      <input type="email" id="email" placeholder="exemple@mail.com" required />
 
-  <!-- Bouton Exclusive -->
-  <form
-    action="https://www.paypal.com/ncp/payment/2VTKNDXTFYW4E"
-    method="post"
-    target="_blank"
-    class="paypal-form"
-    id="form-exclusive"
-  >
-    <input
-      type="submit"
-      value="Payer avec PayPal - Exclusive"
-      class="pp-2VTKNDXTFYW4E"
-    />
-    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-    <section style="font-size: 0.75rem;">
-      Optimisé par
-      <img
-        src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-        alt="paypal"
-        style="height: 0.875rem; vertical-align: middle"
-      />
-    </section>
-  </form>
+      <select id="beat" required>
+        <option value="">-- Choisir un beat --</option>
+        <option value="trapical-storm">Trapical Storm</option>
+        <option value="velvet-grip">Velvet Grip</option>
+        <option value="whisperwave">Whisperwave</option>
+      </select>
+
+      <select id="licence" required>
+        <option value="">-- Choisir une licence --</option>
+        <option value="FLSLGVAAYHWEA">Non-Exclusive</option>
+        <option value="2VTKNDXTFYW4E">Exclusive</option>
+      </select>
+
+      <button type="submit">Acheter</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Géraldo. Tous droits réservés.
+  </footer>
 
   <script>
-    const licenseSelect = document.getElementById('license-select');
-    const nonExclusiveForm = document.getElementById('form-non-exclusive');
-    const exclusiveForm = document.getElementById('form-exclusive');
+    function handleSubmit() {
+      const email = document.getElementById('email').value;
+      const beat = document.getElementById('beat').value;
+      const licence = document.getElementById('licence').value;
 
-    licenseSelect.addEventListener('change', () => {
-      const selected = licenseSelect.value;
-      if (selected === 'Non-Exclusive') {
-        nonExclusiveForm.style.display = 'inline-grid';
-        exclusiveForm.style.display = 'none';
-      } else if (selected === 'Exclusive') {
-        exclusiveForm.style.display = 'inline-grid';
-        nonExclusiveForm.style.display = 'none';
-      } else {
-        nonExclusiveForm.style.display = 'none';
-        exclusiveForm.style.display = 'none';
+      if (!email || !beat || !licence) {
+        alert("Merci de remplir tous les champs.");
+        return false;
       }
-    });
+
+      const paypalLink = `https://www.paypal.com/ncp/payment/${licence}`;
+      window.open(paypalLink, '_blank');
+      return false; // Empêche le vrai submit
+    }
   </script>
+
 </body>
 </html>
