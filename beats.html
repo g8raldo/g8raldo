@@ -73,13 +73,7 @@
 
     <label for="beat">Choisis un beat :</label>
     <select id="beat" required>
-      <option value="">-- Choisir un beat --</option>
-      <option value="Trapical Storm">Trapical Storm</option>
-      <option value="Velvet Grip">Velvet Grip</option>
-      <option value="Whisperwave">Whisperwave</option>
-      <option value="I'll Be There">I'll Be There</option>
-      <option value="Passion">Passion</option>
-      <option value="Tired">Tired</option>
+      <option value="">Chargement...</option>
     </select>
 
     <label for="license">Choisis une licence :</label>
@@ -93,6 +87,24 @@
   </form>
 
   <script>
+    // Remplissage dynamique des beats depuis beats.json
+    fetch("beats.json")
+      .then(response => response.json())
+      .then(data => {
+        const beatSelect = document.getElementById("beat");
+        beatSelect.innerHTML = '<option value="">-- Choisir un beat --</option>';
+        data.forEach(beat => {
+          const option = document.createElement("option");
+          option.value = beat;
+          option.textContent = beat;
+          beatSelect.appendChild(option);
+        });
+      })
+      .catch(error => {
+        console.error("Erreur lors du chargement de beats.json", error);
+        document.getElementById("beat").innerHTML = '<option value="">Erreur de chargement</option>';
+      });
+
     function redirectToPayPal(event) {
       event.preventDefault();
       const beat = document.getElementById("beat").value;
@@ -112,7 +124,6 @@
         paypalUrl = "https://www.paypal.com/ncp/payment/2VTKNDXTFYW4E";
       }
 
-      // Ajouter l’email en tant que note dans l’URL si nécessaire (optionnel)
       window.open(paypalUrl, "_blank");
       return false;
     }
