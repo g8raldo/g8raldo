@@ -2,46 +2,65 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Géraldo | Accueil</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Géraldo | Producer</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+
 <body>
-<header>
-  <a href="index.html"><img src="assets/logo.png" alt="Logo Géraldo" class="logo" /></a>
-  <nav>
-    <ul>
-      <li><a href="index.html"><span class="fr">Accueil</span><span class="en">Home</span></a></li>
-      <li><a href="music.html"><span class="fr">Musique</span><span class="en">Music</span></a></li>
-      <li><a href="contact.html"><span class="fr">Contact</span><span class="en">Contact</span></a></li>
-    </ul>
+
+<canvas id="background"></canvas>
+
+<header id="hero" class="section">
+  <nav class="nav">
+    <a href="#hero">Home</a>
+    <a href="#beats">Beats</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button id="langToggle">EN / FR</button>
   </nav>
-  <button class="lang-switch" onclick="switchLang()">EN</button>
+
+  <div class="hero-content fade">
+    <h1 class="bilingue" data-fr="GÉRALDO" data-en="GÉRALDO"></h1>
+    <p class="bilingue subtitle"
+       data-fr="Producteur | Trap • Afro • Fusion"
+       data-en="Producer | Trap • Afro • Fusion"></p>
+
+    <div class="hero-buttons">
+      <a href="#beats" class="btn">Beats</a>
+      <a href="#contact" class="btn outline">Contact</a>
+    </div>
+  </div>
 </header>
 
-<main>
-  <!-- SECTION ACCUEIL -->
-  <section id="home" class="home-section">
-    <img src="assets/logo.png" alt="Logo Géraldo" class="home-logo" />
-    <h1 class="fr">Bienvenue dans ma galaxie</h1>
-    <h1 class="en">Welcome to my galaxy</h1>
-    <p class="tagline fr">L'univers des vibes uniques</p>
-    <p class="tagline en">The universe of unique vibes</p>
-    <div class="bio">
-      <p class="fr">
-        Géraldo est un chanteur, auteur-compositeur et producteur de musique originaire de l'île Maurice.
-        Visionnaire, il est une force créative dans l'industrie musicale depuis plus d'une décennie.
-        Sa musique est décrite comme le mariage parfait entre l'art, le mouvement, l'émotion, la science et la technologie.
-      </p>
-      <p class="en">
-        Géraldo is a Mauritian singer, songwriter, and music producer.
-        Visionary, Géraldo has been a creative force in the music industry and beyond for more than a decade.
-        His music is described as the perfect marriage between art, movement, emotion, science, and technology.
-      </p>
+<section id="beats" class="section fade">
+  <h2 class="bilingue" data-fr="Beats sélectionnés" data-en="Featured Beats"></h2>
+
+  <div class="beats-grid">
+    <div class="beat-card">
+      <h3>Trapical Storm</h3>
+      <p class="bilingue" data-fr="Trap tropical sombre"
+         data-en="Dark tropical trap"></p>
+      <div class="actions">
+        <a class="btn small">Preview</a>
+        <a class="btn small outline">License</a>
+      </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<section id="about" class="section fade">
+  <h2 class="bilingue" data-fr="À propos" data-en="About"></h2>
+  <p class="bilingue"
+     data-fr="Des beats conçus comme des paysages sonores. Identité avant quantité."
+     data-en="Beats designed as soundscapes. Identity over quantity."></p>
+</section>
+
+<section id="contact" class="section fade">
+  <h2>Contact</h2>
+  <p><a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
