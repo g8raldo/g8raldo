@@ -1,442 +1,104 @@
-/* =====================
-   GLOBAL STYLES
-===================== */
-body {
+:root {
+  --bg: #0a0a0a;
+  --text: #f5f5f5;
+  --accent: #00adee;
+  --card: rgba(255,255,255,0.05);
+}
+
+* {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  line-height: 1.6;
-}
-
-a {
-  color: #ffd700;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-header {
-  width: 100%;
-  background: #111;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-header .logo {
-  height: 48px;
-  width: auto;
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-header nav ul li a {
-  font-weight: bold;
-  color: #fff;
-  transition: color 0.3s;
-}
-
-header nav ul li a:hover {
-  color: #ffd700;
-}
-
-.lang-switch {
-  background: none;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 5px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s, color 0.3s;
-}
-
-.lang-switch:hover {
-  background: #ffd700;
-  color: #000;
-}
-
-.home-section {
-  padding: 80px 20px;
-}
-
-.home-logo {
-  width: 120px;
-  margin-bottom: 20px;
-}
-
-.home-section h1 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-  color: #ff1e8a;
-}
-
-.tagline {
-  font-size: 1.2rem;
-  color: #ffd700;
-}
-
-.bio {
-  max-width: 700px;
-  margin: 20px auto;
-  font-size: 1.1rem;
-  color: #ccc;
-}
-
-/* Styles spécifiques pour select et option */
-select {
-  background-color: #111;
-  color: #fff;
-  border: 1px solid #444;
-  border-radius: 6px;
-  padding: 10px;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
+  padding: 0;
   box-sizing: border-box;
 }
 
-option {
-  background-color: #111;
-  color: #fff;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
 }
 
-/* =====================
-   FOOTER
-===================== */
-footer {
-  margin-top: 60px;
-  padding: 20px;
-  background: #111;
-  font-size: 0.9rem;
-  color: #888;
+canvas#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-footer .yt-footer {
-  font-size: 30px;
-  color: #ff0000;
-  margin-bottom: 10px;
-  display: inline-block;
+.nav {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  padding: 1.5rem;
 }
 
-/* =====================
-   CONTACT FORM
-===================== */
-.contact-section {
-  text-align: center;
-  padding: 40px 20px;
-  color: #fff;
-  background-color: #000;
+.nav a,
+.nav button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.section {
   min-height: 100vh;
+  padding: 5rem 1rem;
+  text-align: center;
 }
 
-.contact-title {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.hero-content h1 {
+  font-size: 3rem;
+  letter-spacing: 4px;
 }
 
-.contact-subtitle {
-  font-size: 18px;
-  color: #ccc;
-  margin-bottom: 30px;
+.subtitle {
+  opacity: 0.8;
+  margin-top: 0.8rem;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: none;
-  width: 100%;
+.btn {
+  display: inline-block;
+  margin: 1rem 0.4rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent);
   color: #000;
-}
-
-.contact-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.btn-submit {
-  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
-  color: #fff;
-  padding: 12px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 6px;
-}
-
-.btn-submit:hover {
-  opacity: 0.8;
-}
-
-/* =====================
-   SOCIAL LINKS
-===================== */
-.social-section {
-  margin-top: 30px;
-}
-
-.social-title {
-  font-size: 20px;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.social-icon {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
-  opacity: 0.8;
-}
-
-/* =====================
-   BEAT STORE BUTTONS
-===================== */
-.store-buttons-section {
-  text-align: center;
-  margin: 3rem auto;
-  padding: 0 1rem;
-}
-
-.store-buttons-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.store-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.store-buttons .btn-gradient {
-  display: inline-block;
-  padding: 1.1rem 3rem;
-  min-width: 200px;
-  font-size: 1.35rem;
-  font-weight: bold;
-  text-transform: uppercase;
+  border-radius: 30px;
   text-decoration: none;
-  color: #fff;
-  background: linear-gradient(90deg, #ff0000, #ff9900, #ff00ff);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: center;
+  font-weight: bold;
 }
 
-.store-buttons .btn-gradient:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 10px rgba(255, 140, 0, 0.8);
+.btn.outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent);
 }
 
-@media (max-width: 480px) {
-  .store-buttons {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .store-buttons .btn-gradient {
-    width: 100%;
-    font-size: 1.2rem;
-    padding: 1rem 0;
-  }
+.small {
+  padding: 0.4rem 1rem;
 }
 
-/* =====================
-   YOUTUBE SECTION
-===================== */
-.youtube-section {
-  position: relative;
-  padding: clamp(3rem, 5vw, 6rem) 1.5rem;
-  background: #0b0b0b;
-  color: #fff;
-  overflow: hidden;
+.beats-grid {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.youtube-bg-spectrum {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255,0,0,0.2),
-    rgba(255,255,0,0.15),
-    rgba(0,128,0,0.2),
-    rgba(0,0,255,0.2)
-  );
-  filter: blur(40px);
-  animation: ytSpectrumShift 8s linear infinite alternate;
-  z-index: 0;
+.beat-card {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 260px;
 }
 
-@keyframes ytSpectrumShift {
-  0% { transform: translate3d(-5%, -5%, 0) scale(1); opacity: 0.8; }
-  50% { transform: translate3d(5%, 0, 0) scale(1.05); opacity: 1; }
-  100% { transform: translate3d(-3%, 5%, 0) scale(1.02); opacity: 0.9; }
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s ease;
 }
 
-.youtube-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 2rem;
-  align-items: start;
-  max-width: 1200px;
-  margin-inline: auto;
-  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
-}
-
-@media (max-width: 768px) {
-  .youtube-inner {
-    grid-template-columns: 1fr;
-  }
-}
-
-.youtube-featured-video .youtube-responsive-embed {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background:#000;
-  border: 2px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.youtube-responsive-embed iframe {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-}
-
-.youtube-cta h2 {
-  margin: 0 0 0.5em;
-  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
-  line-height:1.1;
-}
-
-.youtube-cta p {
-  margin: 0 0 1.25em;
-  max-width: 40ch;
-  opacity: 0.9;
-}
-
-.yt-viewall {
-  display:inline-block;
-  margin-top:0.5em;
-  padding:0.75em 1.5em;
-  background:#ff0000;
-  color:#fff;
-  font-weight:600;
-  text-decoration:none;
-  border-radius:4px;
-  transition:transform 0.15s ease, filter 0.15s ease;
-}
-
-.yt-viewall:hover,
-.yt-viewall:focus-visible {
-  transform:scale(1.05);
-  filter:brightness(1.1);
-}
-
-/* Bouton S'abonner */
-.subscribe-btn {
-  background: #cc0000;
-  font-size: 1.1rem;
-  display: inline-block;
-  margin-bottom: 1.2em;
-}
-.subscribe-btn i {
-  margin-right: 8px;
-}
-
-/* Grille de vidéos */
-.youtube-grid {
-  position: relative;
-  z-index: 1;
-  margin-top: 3rem;
-  display:grid;
-  gap:1.25rem;
-  grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));
-  list-style:none;
-  padding:0;
-}
-
-.youtube-grid-card {
-  display:block;
-  text-decoration:none;
-  color:#fff;
-  background:#181818;
-  border-radius:8px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  transition:transform 0.15s ease,box-shadow 0.15s ease;
-}
-
-.youtube-grid-card:hover,
-.youtube-grid-card:focus-visible {
-  transform:translateY(-4px) scale(1.02);
-  box-shadow:0 8px 24px rgba(0,0,0,0.6);
-}
-
-.youtube-grid-card img {
-  display:block;
-  width:100%;
-  height:auto;
-  aspect-ratio:16/9;
-  object-fit:cover;
-}
-
-.youtube-grid-title {
-  display:block;
-  padding:0.75em;
-  font-size:0.95rem;
-  text-align:center;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
