@@ -1,33 +1,64 @@
-(function(){
-  let currentLang = 'fr'; // langue par défaut
+/* LANG TOGGLE */
+let lang = "fr";
+const toggle = document.getElementById("langToggle");
 
-  function applyLang(){
-    const frEls = document.querySelectorAll('.fr');
-    const enEls = document.querySelectorAll('.en');
-    const btn   = document.querySelector('.lang-switch');
+function updateLang() {
+  document.querySelectorAll(".bilingue").forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+}
+updateLang();
 
-    if (currentLang === 'en'){
-      frEls.forEach(el => el.style.display = 'none');
-      enEls.forEach(el => el.style.display = 'block');
-      if (btn) btn.textContent = 'FR';
-      document.documentElement.lang = 'en';
-    } else {
-      frEls.forEach(el => el.style.display = 'block');
-      enEls.forEach(el => el.style.display = 'none');
-      if (btn) btn.textContent = 'EN';
-      document.documentElement.lang = 'fr';
+toggle.addEventListener("click", () => {
+  lang = lang === "fr" ? "en" : "fr";
+  updateLang();
+});
+
+/* SCROLL FADE */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
     }
-  }
+  });
+}, { threshold: 0.15 });
 
-  window.switchLang = function(){
-    currentLang = (currentLang === 'fr') ? 'en' : 'fr';
-    applyLang();
-  };
+document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 
-  // Appelle applyLang **immédiatement** pour éviter que les deux langues apparaissent
-  if (document.readyState === "loading") {
-    document.addEventListener('DOMContentLoaded', applyLang);
-  } else {
-    applyLang();
-  }
-})();
+/* BACKGROUND PARTICLES */
+const canvas = document.getElementById("background");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+const particles = Array.from({ length: 80 }, () => ({
+  x: Math.random() * w,
+  y: Math.random() * h,
+  r: Math.random() * 2 + 0.5,
+  dx: (Math.random() - 0.5) * 0.3,
+  dy: (Math.random() - 0.5) * 0.3
+}));
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+  particles.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > w) p.dx *= -1;
+    if (p.y < 0 || p.y > h) p.dy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0,173,238,0.4)";
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
