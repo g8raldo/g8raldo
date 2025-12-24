@@ -1,66 +1,180 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Géraldo | Producer</title>
-  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #1b1f3b, #050509);
+      color: #e6e6eb;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 25px 35px;
+      display: flex;
+      gap: 20px;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    nav a { text-decoration: none; color: inherit; }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+
+    .tagline {
+      margin-top: 15px;
+      opacity: 0.7;
+    }
+
+    .home-bio {
+      margin-top: 25px;
+      max-width: 520px;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    .section {
+      padding: 100px 60px;
+      max-width: 900px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.85;
+    }
+
+    .music-block {
+      margin-top: 35px;
+    }
+
+    .music-block h3 {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      opacity: 0.9;
+    }
+
+    .music-block a {
+      font-size: 0.85rem;
+      color: #b8c1ff;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .music-block a:hover { opacity: 1; }
+
+    .streaming {
+      margin-top: 40px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      font-size: 1.8rem;
+    }
+
+    footer {
+      padding: 40px 60px;
+      font-size: 0.7rem;
+      opacity: 0.4;
+    }
+
+    @media (max-width: 768px) {
+      .hero, .section, footer { padding: 60px 25px; }
+      h1 { font-size: 2.3rem; }
+    }
+  </style>
 </head>
 
 <body>
 
-<canvas id="background"></canvas>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#music">Music</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<header id="hero" class="section">
-  <nav class="nav">
-    <a href="#hero">Home</a>
-    <a href="#beats">Beats</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <button id="langToggle">EN / FR</button>
-  </nav>
-
-  <div class="hero-content fade">
-    <h1 class="bilingue" data-fr="GÉRALDO" data-en="GÉRALDO"></h1>
-    <p class="bilingue subtitle"
-       data-fr="Producteur | Trap • Afro • Fusion"
-       data-en="Producer | Trap • Afro • Fusion"></p>
-
-    <div class="hero-buttons">
-      <a href="#beats" class="btn">Beats</a>
-      <a href="#contact" class="btn outline">Contact</a>
-    </div>
-  </div>
+<header class="hero" id="home">
+  <h1>Géraldo</h1>
+  <p class="tagline">I don’t chase the spotlight. I build in silence.</p>
+  <p class="home-bio">
+    Géraldo is a producer driven by atmosphere and restraint. His work moves between beats, productions and collaborations, guided by emotion rather than noise.
+  </p>
 </header>
 
-<section id="beats" class="section fade">
-  <h2 class="bilingue" data-fr="Beats sélectionnés" data-en="Featured Beats"></h2>
+<section class="section" id="music">
+  <h2>Music</h2>
 
-  <div class="beats-grid">
-    <div class="beat-card">
-      <h3>Trapical Storm</h3>
-      <p class="bilingue" data-fr="Trap tropical sombre"
-         data-en="Dark tropical trap"></p>
-      <div class="actions">
-        <a class="btn small">Preview</a>
-        <a class="btn small outline">License</a>
-      </div>
-    </div>
+  <div class="music-block">
+    <h3>Beats</h3>
+    <a href="https://www.youtube.com/playlist?list=PLetw1Z0_7TkxAQJ7nlo8z4KrQf2fjBRPn" target="_blank">YouTube Playlist</a>
+  </div>
+
+  <div class="music-block">
+    <h3>Productions</h3>
+    <a href="https://www.youtube.com/playlist?list=PLetw1Z0_7TkxN--j1VcpMCTUPS7XNd7k_" target="_blank">YouTube Playlist</a>
+  </div>
+
+  <div class="music-block">
+    <h3>Featurings</h3>
+    <a href="https://www.youtube.com/playlist?list=PLetw1Z0_7Tkzbxlb2QtMFJW9vNW-Cbx39" target="_blank">YouTube Playlist</a>
+  </div>
+
+  <div class="streaming">
+    <a href="https://open.spotify.com/intl-fr/artist/7A2Int6wocwktRSs9HDwEL" target="_blank">Spotify</a>
+    <a href="https://music.apple.com/us/artist/g%C3%A9raldo/1718121242" target="_blank">Apple Music</a>
+    <a href="https://music.amazon.fr/artists/B00FNEC5YW/g%C3%A9raldo" target="_blank">Amazon Music</a>
+    <a href="https://music.youtube.com/channel/UCtZoDEEdwchaxeMuxTj1ONw" target="_blank">YouTube Music</a>
   </div>
 </section>
 
-<section id="about" class="section fade">
-  <h2 class="bilingue" data-fr="À propos" data-en="About"></h2>
-  <p class="bilingue"
-     data-fr="Des beats conçus comme des paysages sonores. Identité avant quantité."
-     data-en="Beats designed as soundscapes. Identity over quantity."></p>
-</section>
-
-<section id="contact" class="section fade">
+<section class="section" id="contact">
   <h2>Contact</h2>
-  <p><a href="mailto:contact@g8raldo.com">contact@g8raldo.com</a></p>
+
+  <div class="contact-icons">
+    <a href="https://snapchat.com/@q3raldo/" target="_blank">
+      <i class="fa-brands fa-snapchat"></i>
+    </a>
+
+    <a href="mailto:contact@g8raldo.com">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </div>
 </section>
 
-<script src="script.js"></script>
+<footer>
+  © Géraldo
+</footer>
+
 </body>
 </html>
