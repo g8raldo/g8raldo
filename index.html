@@ -6,13 +6,20 @@
 <title>Géraldo | Producer</title>
 
 <style>
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, Helvetica, sans-serif;
   background: radial-gradient(circle at top, #1b1f3b, #050509);
   color: #e6e6eb;
+  line-height: 1.6;
 }
 
+/* NAV */
 nav {
   position: fixed;
   top: 0;
@@ -31,22 +38,54 @@ nav a {
 
 nav a:hover { opacity: 1; }
 
+/* HERO */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px;
+  padding: 120px 60px 80px;
 }
 
-h1 { font-size: 3rem; }
+h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
 
-.tagline { margin-top: 15px; opacity: 0.7; }
+.tagline {
+  margin-top: 15px;
+  font-size: 1rem;
+  opacity: 0.7;
+}
 
+/* BIO */
 .bio {
-  margin-top: 25px;
-  max-width: 520px;
-  opacity: 0.8;
+  margin-top: 40px;
+  max-width: 680px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.bio p {
+  margin-bottom: 18px;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  font-size: 0.7rem;
+  opacity: 0.4;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero, footer {
+    padding: 100px 25px;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
 }
 </style>
 </head>
@@ -59,14 +98,33 @@ h1 { font-size: 3rem; }
   <a href="contact.html">Contact</a>
 </nav>
 
-<div class="hero">
+<section class="hero">
   <h1>Géraldo</h1>
   <p class="tagline">I don’t chase the spotlight. I build in silence.</p>
-  <p class="bio">
-    Producer focused on atmosphere, emotion and restraint.  
-    Beats, productions and collaborations built without noise or overexposure.
-  </p>
-</div>
+
+  <div class="bio">
+    <p>
+      Géraldo is a producer whose work is defined by atmosphere, restraint, and emotional depth.
+      Rather than chasing trends or visibility, he focuses on building soundscapes that leave space
+      for the artist, the voice, and the feeling.
+    </p>
+
+    <p>
+      His universe moves between beats crafted for artists, full productions shaped around vocals,
+      and collaborative projects where sound becomes direction. Each piece is approached with
+      precision, silence, and intention.
+    </p>
+
+    <p>
+      No overexposure. No noise.  
+      Just sound, emotion, and a long-term vision.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © Géraldo
+</footer>
 
 </body>
 </html>
