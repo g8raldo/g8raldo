@@ -1,119 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Géraldo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Géraldo</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at top, #1b1f3b, #050509);
-  color: #e6e6eb;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #1b1f3b, #050509);
+      color: #e6e6eb;
+    }
 
-/* NAV */
-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 25px 35px;
-  display: flex;
-  gap: 20px;
-  font-size: 0.8rem;
-}
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 25px 35px;
+      display: flex;
+      gap: 20px;
+      font-size: 0.8rem;
+    }
 
-nav a {
-  color: inherit;
-  text-decoration: none;
-  opacity: 0.8;
-}
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.8;
+    }
 
-nav a:hover { opacity: 1; }
+    nav a:hover {
+      opacity: 1;
+    }
 
-/* CONTACT */
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px 60px;
-}
+    /* CONTACT */
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 60px;
+    }
 
-h2 {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  opacity: 0.85;
-}
+    h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.85;
+    }
 
-.contact-text {
-  max-width: 520px;
-  font-size: 0.95rem;
-  opacity: 0.8;
-  margin-bottom: 40px;
-}
+    .contact-text {
+      max-width: 520px;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
 
-.icons {
-  display: flex;
-  gap: 35px;
-  font-size: 2.2rem;
-}
+    .icons {
+      display: flex;
+      gap: 35px;
+      font-size: 2.2rem;
+    }
 
-.icons a {
-  color: inherit;
-  opacity: 0.75;
-}
+    .icons a {
+      color: inherit;
+      opacity: 0.75;
+      transition: opacity 0.2s ease;
+    }
 
-.icons a:hover {
-  opacity: 1;
-}
+    .icons a:hover {
+      opacity: 1;
+    }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .container {
-    padding: 100px 25px;
-  }
-}
-</style>
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .container {
+        padding: 100px 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="music.html">Music</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="music.html">Music</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<section class="container">
-  <h2>Contact</h2>
+  <section class="container">
+    <h2>Contact</h2>
 
-  <p class="contact-text">
-    For collaborations, placements, or serious inquiries,  
-    reach out through one of the channels below.
-  </p>
+    <p class="contact-text">
+      For collaborations, placements, or serious inquiries,  
+      reach out through one of the channels below.
+    </p>
 
-  <div class="icons">
-    <a href="https://snapchat.com/@q3raldo/" target="_blank" aria-label="Snapchat">
-    <a href="https://tiktok.com/@g8raldo/" target="_blank" aria-label="TikTok">
-    <a href="https://youtube.com/@g8raldo/" target="_blank" aria-label="YouTube">
-      <i class="fa-brands fa-snapchat"></i>
-    </a>
+    <div class="icons">
+      <a href="https://snapchat.com/@q3raldo/" target="_blank" aria-label="Snapchat">
+        <i class="fa-brands fa-snapchat"></i>
+      </a>
 
-    <a href="mailto:contact@g8raldo.com" aria-label="Email">
-      <i class="fa-solid fa-envelope"></i>
-    </a>
-  </div>
-</section>
+      <a href="https://tiktok.com/@g8raldo/" target="_blank" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+
+      <a href="https://youtube.com/@g8raldo/" target="_blank" aria-label="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+      <a href="mailto:contact@g8raldo.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </section>
 
 </body>
 </html>
